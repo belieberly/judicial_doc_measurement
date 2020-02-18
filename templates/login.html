@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../static/css/layui.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>
+            登录
+        </h1>
+        <form method="get" action='/login'>
+            <label>账户（邮箱）：<input type="text" name="user" value=""></label><br>
+            <label>密码：<input type="password" name="password" value=""></label><br>
+            <input type="submit" value="登录">
+        </form>
+        <input type ="button" value = "注册" onclick = "/regist">
+        <a href="/regist" class="layui-btn">一个可跳转的按钮</a>
+    <span style="color: red">{{ errMessages }}</span>
+    </body>
+</html>
+
+
+
+
+
