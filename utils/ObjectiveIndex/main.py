@@ -193,6 +193,8 @@ def acc_DSR(wenshu, wenshu_corr):
                 # 检测顺序
                 lis_index = lis(index_DSR)
                 for i in range(len(index_DSR)):
+                    if index_DSR[i]==-1:
+                        wenshu_corr['首部'].append('当事人信息'+DSR_txt+'中缺少'+standard_DSR[i])
                     if index_DSR[i] != -1 and (index_DSR[i] not in lis_index):
                         wenshu_corr['首部'].append('当事人信息' + DSR_txt + '中' + standard_DSR[i] + '顺序错误')
         break

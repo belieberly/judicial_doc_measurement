@@ -13,7 +13,6 @@ import json
 import datetime
 
 
-
 app = Flask(__name__)
 
 
@@ -129,7 +128,6 @@ def getLoginRequest():
         return '登陆失败'
     # 关闭数据库连接
     db.close()
-
 
 
 if __name__ == '__main__':
