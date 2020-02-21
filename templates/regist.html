@@ -1,21 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../static/css/layui.css">
-    </head>
-    <body>
-        <form method="get" action='/registuser'>
-            <label>账户（邮箱）：<input type="text" name="user" value=""></label><br>
-            <label>输入密码：<input type="password" name="password1" value=""></label><br>
-            <label>确认密码：<input type="password" name="password2" value=""></label><br>
-            <label>工作单位：<input type="text" name="organization" value=""></label><br>
-            <label>职务：<input type="text" name="job" value=""></label><br>
-            <label>真实姓名：<input type="text" name="name" value=""></label><br>
-            <input type="submit" value="注册">
-        </form>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/css/layui.css">
+    <style>
+        body {
+            height: 100vh;
+        }
 
-    </body>
+        .layui-container {
+            height: 100%;
+            position: relative;
+        }
+
+        .layui-row {
+            position: relative;
+            top: 15%;
+        }
+
+        .form-border {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ebebeb;
+            border-radius: 3px;
+            transition: .2s;
+            padding: 25px 50px 50px;
+        }
+
+        .form-border:hover {
+            box-shadow: 0 0 8px rgba(232, 237, 250, 0.6), 0 2px 4px 0 rgba(232, 237, 250, .5);
+        }
+
+        .title {
+            font-size: 1.8rem;
+            display: inline-block;
+            align-self: center;
+            padding-bottom: 25px;
+        }
+
+        .btn-group {
+            margin: 20px auto 0;
+            text-align: center;
+
+        }
+
+        /**
+                .tip {
+                    text-align: center;
+                }
+
+                .tip a {
+                    text-decoration: underline;
+                    color: #009687;
+                }
+                */
+        .tip {
+            text-align: right;
+            margin-top: 20px;
+            position: relative;
+            left: 50px;
+        }
+
+        .tip a {
+            background: #009687;
+            padding: 6px;
+            color: #fff;
+        }
+
+        .tip::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 14.5px solid transparent;
+            border-bottom: 14.5px solid transparent;
+            border-left: 15px solid #009687;
+            z-index: 999;
+            position: absolute;
+            top: -4px;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-container">
+    <div class="layui-row">
+
+        <div class="layui-col-xs10 layui-col-sm10 layui-col-md6 layui-col-xs-offset1 layui-col-sm-offset1 layui-col-md-offset3">
+
+            <form class="layui-form form-border" action="/login">
+                <span class="title">注册</span>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">邮箱：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="email" required lay-verify="required" placeholder="请输入邮箱"
+                               autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">密码：</label>
+                    <div class="layui-input-block">
+                        <input type="password" name="password" required lay-verify="required" placeholder="请输入密码"
+                               autocomplete="off"
+                               class="layui-input">
+                    </div>
+                    <!--                    <div class="layui-form-mid layui-word-aux">辅助文字</div>-->
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">确认密码：</label>
+                    <div class="layui-input-block">
+                        <input type="password" name="confirmPassword" required lay-verify="required"
+                               placeholder="请再次输入密码"
+                               autocomplete="off"
+                               class="layui-input">
+                    </div>
+                    <!--                    <div class="layui-form-mid layui-word-aux">辅助文字</div>-->
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">工作单位：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="organization" required lay-verify="required" placeholder="请输入工作单位"
+                               autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">职务：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="job" required lay-verify="required" placeholder="请输入职务"
+                               autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">真实姓名：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="name" required lay-verify="required" placeholder="请输入真实姓名"
+                               autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block btn-group">
+                        <button class="layui-btn" lay-submit lay-filter="formDemo">注册</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+                <div class="tip">
+                    <span>已有账号？去</span><a href="{{ url_for('login') }}">登录</a></div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+</body>
 </html>

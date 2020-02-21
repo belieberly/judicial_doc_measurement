@@ -1,28 +1,138 @@
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="../static/css/layui.css" rel="stylesheet">
-    </head>
-    <body>
-        <h1>
-            登录
-        </h1>
-        <form method="get" action='/login'>
-            <label>账户（邮箱）：<input type="text" name="user" value=""></label><br>
-            <label>密码：<input type="password" name="password" value=""></label><br>
-            <input type="submit" value="登录">
-        </form>
-        <input type ="button" value = "注册" onclick = "/regist">
-        <a href="/regist" class="layui-btn">一个可跳转的按钮</a>
-    <span style="color: red">{{ errMessages }}</span>
-    </body>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../static/css/layui.css" rel="stylesheet">
+    <style>
+        body {
+            height: 100vh;
+        }
+
+        .layui-container {
+            height: 100%;
+            position: relative;
+        }
+
+        .layui-row {
+            position: relative;
+            top: 30%;
+        }
+
+        .form-border {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ebebeb;
+            border-radius: 3px;
+            transition: .2s;
+            padding: 25px 50px 50px;
+        }
+
+        .form-border:hover {
+            box-shadow: 0 0 8px rgba(232, 237, 250, 0.6), 0 2px 4px 0 rgba(232, 237, 250, .5);
+        }
+
+        .title {
+            font-size: 1.8rem;
+            display: inline-block;
+            align-self: center;
+            padding-bottom: 25px;
+        }
+
+        .btn-group {
+            margin: 20px auto 0;
+            text-align: center;
+
+        }
+
+        .login-btn {
+            width: 60%;
+        }
+
+        .tip {
+            text-align: right;
+            margin-top: 20px;
+            position: relative;
+            left: 50px;
+        }
+
+        .tip a {
+            background: #009687;
+            padding: 6px;
+            color: #fff;
+        }
+
+        .tip::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 14.5px solid transparent;
+            border-bottom: 14.5px solid transparent;
+            border-left: 15px solid #009687;
+            z-index: 999;
+            position: absolute;
+            top: -4px;
+        }
+    </style>
+</head>
+<body>
+<!--
+<form method="get" action='/login'>
+    <label>账户（邮箱）：<input type="text" name="user" value=""></label><br>
+    <label>密码：<input type="password" name="password" value=""></label><br>
+    <input type="submit" value="登录">
+</form>
+<input type="button" value="注册" onclick="/regist">
+<a href="/regist" class="layui-btn">一个可跳转的按钮</a>
+<span style="color: red">{{ errMessages }}</span>-->
+<div class="layui-container">
+    <div class="layui-row">
+
+        <div class="layui-col-xs10 layui-col-sm10 layui-col-md6 layui-col-xs-offset1 layui-col-sm-offset1 layui-col-md-offset3">
+
+            <form class="layui-form form-border" action="/login">
+                <span class="title">登录</span>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">邮箱：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="email" required lay-verify="required" placeholder="请输入邮箱"
+                               autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">密码：</label>
+                    <div class="layui-input-block">
+                        <input type="password" name="password" required lay-verify="required" placeholder="请输入密码"
+                               autocomplete="off"
+                               class="layui-input">
+                    </div>
+                    <!--                    <div class="layui-form-mid layui-word-aux">辅助文字</div>-->
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block btn-group">
+                        <button class="layui-btn layui-btn-fluid login-btn" lay-submit lay-filter="formDemo">登录</button>
+                    </div>
+                    <div class="tip">没有账号？<a href="{{ url_for('click_regist') }}">注销</a></div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    //Demo
+    layui.use('form', function () {
+        var form = layui.form;
+        //监听提交
+        form.on('submit(formDemo)', function (data) {
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
+</script>
+</body>
 </html>
-
-
-
-
-
