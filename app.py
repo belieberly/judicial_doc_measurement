@@ -92,7 +92,7 @@ def getRigistRequest():
 def getLoginRequest():
     # 查询用户名及密码是否匹配及存在
     # 连接数据库,此前在数据库中创建数据库TESTDB
-    db = pymysql.connect("localhost", "root", "ilynsm77", "log_in")
+    db = pymysql.connect("localhost", "root", "root", "log_in")
     # 使用cursor()方法获取操作游标
     cursor = db.cursor()
     # SQL 查询语句
