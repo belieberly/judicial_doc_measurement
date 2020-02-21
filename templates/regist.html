@@ -88,12 +88,12 @@
 
         <div class="layui-col-xs10 layui-col-sm10 layui-col-md6 layui-col-xs-offset1 layui-col-sm-offset1 layui-col-md-offset3">
 
-            <form class="layui-form form-border" action="/login">
+            <form class="layui-form form-border">
                 <span class="title">注册</span>
                 <div class="layui-form-item">
                     <label class="layui-form-label">邮箱：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="email" required lay-verify="required" placeholder="请输入邮箱"
+                        <input type="text" name="email" required lay-verify="required|email" placeholder="请输入邮箱"
                                autocomplete="off"
                                class="layui-input">
                     </div>
@@ -101,7 +101,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">密码：</label>
                     <div class="layui-input-block">
-                        <input type="password" name="password" required lay-verify="required" placeholder="请输入密码"
+                        <input type="password" name="password" required lay-verify="required|passwd" placeholder="请输入密码"
                                autocomplete="off"
                                class="layui-input">
                     </div>
@@ -110,7 +110,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">确认密码：</label>
                     <div class="layui-input-block">
-                        <input type="password" name="confirmPassword" required lay-verify="required"
+                        <input type="password" name="confirmPassword" required lay-verify="required|comfirmPass"
                                placeholder="请再次输入密码"
                                autocomplete="off"
                                class="layui-input">
@@ -143,7 +143,7 @@
                 </div>
                 <div class="layui-form-item">
                     <div class="layui-input-block btn-group">
-                        <button class="layui-btn" lay-submit lay-filter="formDemo">注册</button>
+                        <button class="layui-btn" lay-submit lay-filter="*">注册</button>
                         <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                     </div>
                 </div>
@@ -154,6 +154,36 @@
     </div>
 
 </div>
-
+<script src="../static/layui.js"></script>
+<script>
+    layui.use(['form', 'jquery'], function () {
+        var $ = layui.$
+        var form = layui.form;
+        //要放在form.on外面，千万不能放在提交步骤中，否则会不触发
+        form.verify({
+            emailVerify: function (value, item) {
+                if (!new RegExp("^[a-z0-9A-Z]+[- | a-z0-9A-Z . _]+@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\\\.)+[a-z]{2,}$").test(value)) {
+                    return '请填写正确格式的邮箱';
+                }
+            },
+            passwd: function (value, item) {
+                if (!new RegExp("^(?![0-9]+$)(?![a-z]+$)(?![A-Z]+$)(?!([^(0-9a-zA-Z)])+$).{6,20}$").test(value)) {
+                    return '请确认密码为6-20位，包含数字,英文,字符中的两种以上'
+                }
+            },
+            comfirmPass: function (value, item) {
+                let pass = $('input[name="password').val()
+                if (value !== pass) {
+                    return '两次密码不一致'
+                }
+            }
+        });
+        form.on("submit(*)", function (data) {
+            console.log(data)
+            console.log(data.field)
+            return false;
+        });
+    });
+</script>
 </body>
 </html>

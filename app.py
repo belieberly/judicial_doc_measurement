@@ -12,10 +12,12 @@ import json
 
 import datetime
 
-
-
 app = Flask(__name__)
 
+DB_IP = "localhost"
+DB_USER = "root"
+DB_PASS = "root"
+DB_NAME = "log_in"
 
 
 @app.route('/')
@@ -29,19 +31,20 @@ def demo():
     # inputf2 = open('./data/example.txt', 'r', encoding='utf-8')
     text1 = inputf1.readlines()
     # text2 = inputf2.readlines()
-    doc_txt,flag_list = text_parse.split_txt(text1)
+    doc_txt, flag_list = text_parse.split_txt(text1)
     # for content in doc_txt:
     #     AutoChecker4Chinese.err_correct(content)
-    return render_template('split_demo.html', doc_txt = doc_txt, flag_list = flag_list)
+    return render_template('split_demo.html', doc_txt=doc_txt, flag_list=flag_list)
+
 
 @app.route('/index')
 def index():
     return render_template('index.html')
 
+
 @app.route('/regist')
 def click_regist():
     return render_template('regist.html')
-
 
 
 def Response_headers(content):
@@ -62,15 +65,15 @@ def getRigistRequest():
     user_name = request.args.get('name')
     dt = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     # 连接数据库,此前在数据库中创建数据库TESTDB
-    db = pymysql.connect("localhost", "root", "ilynsm77", "log_in")
+    db = pymysql.connect(DB_IP, DB_USER, DB_PASS, DB_NAME)
     # 使用cursor()方法获取操作游标
     cursor = db.cursor()
-    if(user_pwd1!=user_pwd2):
+    if (user_pwd1 != user_pwd2):
         return '两次输入密码不一致'
     # SQL 插入语句
     # sql = "INSERT INTO user(user, pwd, nick_name) VALUES (" + request.args.get('user') + ", " + request.args.get('password') + ")"
     sql = "INSERT INTO user(user_account, pwd, user_org,user_job,user_name, creattime) VALUES ('%s','%s','%s', '%s', '%s', '%s')" % (
-        user_account, user_pwd1, user_org,user_job,user_name, dt)
+        user_account, user_pwd1, user_org, user_job, user_name, dt)
     try:
         # 执行sql语句
         cursor.execute(sql)
@@ -93,7 +96,7 @@ def getRigistRequest():
 def getLoginRequest():
     # 查询用户名及密码是否匹配及存在
     # 连接数据库,此前在数据库中创建数据库TESTDB
-    db = pymysql.connect("localhost", "root", "root", "log_in")
+    db = pymysql.connect(DB_IP, DB_USER, DB_PASS, DB_NAME)
     # 使用cursor()方法获取操作游标
     cursor = db.cursor()
     # SQL 查询语句
@@ -119,7 +122,7 @@ def getLoginRequest():
             # return json.dumps(data)
             return render_template('index.html')
         else:
-            return render_template('login.html',errMessages="用户名或者密码错误")
+            return render_template('login.html', errMessages="用户名或者密码错误")
         # 提交到数据库执行
         db.commit()
     except:
@@ -129,7 +132,6 @@ def getLoginRequest():
         return '登陆失败'
     # 关闭数据库连接
     db.close()
-
 
 
 if __name__ == '__main__':
