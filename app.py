@@ -6,6 +6,7 @@ from utils.doc_split import text_parse
 #
 # from utils.AutoChecker import AutoChecker4Chinese
 
+
 import pymysql
 
 import json

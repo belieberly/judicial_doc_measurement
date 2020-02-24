@@ -7,18 +7,6 @@ from xml.etree import ElementTree as etree
 import re
 import datetime, time
 
-inputf = open('D:/NJU/final_project/data/example/100032.xml', 'r', encoding='utf-8')
-
-xml_file = etree.parse("D:/NJU/final_project/data/example/100011.xml")
-root_node = xml_file.getroot()[0]
-
-# print(len(root_node))
-#
-# for node in root_node:
-#     print(node.tag)
-
-wenshu_content = {'文首': [], "首部": [], "事实": [], "理由": [], "依据": [], "主文": [], "尾部": [], '落款': [], '其他': []}
-wenshu_corr = {'文首': [], "首部": [], "事实": [], "理由": [], "依据": [], "主文": [], "尾部": [], '落款': [], '其他': [], }
 standard = ['文首', '首部', '事实', '理由', '依据', '主文', '尾部', '落款', '其他']
 
 
@@ -110,7 +98,7 @@ def lis(arr):
 # wenshu_analysis(root_node)
 
 # 审理经过准确性
-wenshu, _ = wenshu_analysis(root_node)
+# wenshu, _ = wenshu_analysis(root_node)
 
 
 def acc_SLJG(wenshu, wenshu_corr):
@@ -193,12 +181,13 @@ def acc_DSR(wenshu, wenshu_corr):
                 # 检测顺序
                 lis_index = lis(index_DSR)
                 for i in range(len(index_DSR)):
-                    if index_DSR[i]==-1:
-                        wenshu_corr['首部'].append('当事人信息'+DSR_txt+'中缺少'+standard_DSR[i])
+                    if index_DSR[i] == -1:
+                        wenshu_corr['首部'].append('当事人信息' + DSR_txt + '中缺少' + standard_DSR[i])
                     if index_DSR[i] != -1 and (index_DSR[i] not in lis_index):
                         wenshu_corr['首部'].append('当事人信息' + DSR_txt + '中' + standard_DSR[i] + '顺序错误')
         break
     print(wenshu_corr['首部'])
+    return wenshu_corr
 
 
 # acc_SLJG(wenshu, wenshu_corr)
@@ -423,6 +412,8 @@ def aut_AY(root_node, wenshu_corr):
                     ay_test = subnode.get('value')
                     break
             break
+    if ay_test == '':
+        wenshu_corr['SSJL'].append('真实性：未标明案由')
     if ay_test not in anyou_list:
         wenshu_corr['SSJL'].append('真实性：案由不在列表中，可能为编造案由')
 
@@ -455,14 +446,12 @@ def date_change(date_txt):
 
 # 案件信息延迟性，案件发生到立案日期
 # 受理日期到结案日期
-def del_date(root_node, wenshu_corr):
+def del_date(root_node):
     date_list = []
     for node in root_node:
         if node.tag == 'SSJL':
-            print('enen')
             for subnode in node:
                 if subnode.tag == 'SLRQ':
-                    print('jinlai')
                     SLRQ_txt = subnode.get('value')
                     date_SLRQ = date_change(SLRQ_txt)
                     break
@@ -481,7 +470,7 @@ def del_date(root_node, wenshu_corr):
     date_AJFS = min(date_list)
     print('案件发生时间，案件受理时间，案件结案时间')
     print(date_AJFS, date_SLRQ, date_JARQ)
-    return wenshu_corr
+    return date_AJFS, date_SLRQ, date_JARQ
 
 
 # del_date(root_node, wenshu_corr)
@@ -504,36 +493,37 @@ def walkData(root_node, level, result_list):
     return result_list
 
 
-def met_CSRXX(root_node,wenshu_corr):
+def met_CSR(root_node):
     for node in root_node:
-        if node.tag=='DSR':
+        if node.tag == 'DSR':
             CSR_count = []
             for subnode in node:
-                if subnode.tag=='DLR' or subnode.tag=='QSF' or subnode.tag=='YSF':
+                if subnode.tag == 'DLR' or subnode.tag == 'QSF' or subnode.tag == 'YSF':
                     result_list = []
                     level = 1
-                    result_list = walkData(subnode,level,result_list)
+                    result_list = walkData(subnode, level, result_list)
                     CSR_count.append(len(result_list))
     print(CSR_count)
-    return
+    return CSR_count
 
 
-met_CSRXX(root_node,wenshu_corr)
+# met_CSRXX(root_node,wenshu_corr)
 
 
-#事实描述部分细致性
-def met_AJJBQK(wenshu,wenshu_corr):
+# 事实描述部分细致性
+def met_AJJBQK(wenshu):
     root = wenshu['事实'][0]
     result_list = []
     level = 1
     result_list = walkData(root, level, result_list)
-    AJJBQK_count= len(result_list)
+    AJJBQK_count = len(result_list)
     print(AJJBQK_count)
     return AJJBQK_count
 
-#理由部分细致性
 
-def met_CPFXGC(wenshu,wenshu_corr):
+# 理由部分细致性
+
+def met_CPFXGC(wenshu):
     root = wenshu['理由'][0]
     result_list = []
     level = 1
@@ -542,6 +532,46 @@ def met_CPFXGC(wenshu,wenshu_corr):
     print(CPFXGC_count)
     return CPFXGC_count
 
+
 # met_AJJBQK(wenshu,wenshu_corr)
 #
 # met_CPFXGC(wenshu,wenshu_corr)
+
+
+def baba(filepath):
+    xml_file = etree.parse(filepath)
+    root_node = xml_file.getroot()[0]
+    # wenshu_content = {'文首': [], "首部": [], "事实": [], "理由": [], "依据": [], "主文": [], "尾部": [], '落款': [], '其他': []}
+    wenshu_corr = {'文首': [], "首部": [], "事实": [], "理由": [], "依据": [], "主文": [], "尾部": [], '落款': [], '其他': []}
+    wenshu, index = wenshu_analysis(root_node)
+    res,wenshu_corr = acc_GCSX(index, wenshu_corr)
+    if len(wenshu['首部']) != 0:
+        wenshu_corr = acc_DSR(wenshu, wenshu_corr)
+        wenshu_corr = acc_SLJG(wenshu, wenshu_corr)
+    if len(wenshu['事实']) != 0:
+        wenshu_corr = met_AJJBQK(wenshu, wenshu_corr)
+        wenshu_corr = rea_SSMS(wenshu, wenshu_corr)
+    if len(wenshu['理由']) != 0:
+        CPFXGC_count = met_CPFXGC(wenshu, wenshu_corr)
+        wenshu_corr = rea_ZYJD(wenshu, wenshu_corr)
+        wenshu_corr = aut_CPYJ(wenshu, wenshu_corr)
+    if len(wenshu['正文']) != 0:
+        wenshu_corr = com_PJNR(wenshu, wenshu_corr)
+    if len(wenshu['尾部']) != 0:
+        wenshu_corr = com_SFCD(wenshu, wenshu_corr)
+
+    wenshu_corr = aut_AY(root_node,wenshu_corr)
+    date_AJFS, date_SLRQ, date_JARQ = del_date(root_node)
+    AJJBQK_count = met_AJJBQK(wenshu)
+    CSR_count = met_CSR(wenshu)
+
+
+inputf = open('D:/NJU/final_project/data/example/100032.xml', 'r', encoding='utf-8')
+
+xml_file = etree.parse("D:/NJU/final_project/data/example/100011.xml")
+root_node = xml_file.getroot()[0]
+
+# print(len(root_node))
+#
+# for node in root_node:
+#     print(node.tag)

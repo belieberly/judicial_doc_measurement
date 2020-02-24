@@ -1,0 +1,910 @@
+<AY level="0" title="案由列表">
+    <first-label label="人格权纠纷" level="1">
+        <second_label label="人格权纠纷" level="2">
+            <third_label label="生命权" level="3"/>
+            <third_label label="姓名权纠纷" level="3"/>
+            <third_label label="肖像权纠纷" level="3"/>
+            <third_label label="名誉权纠纷" level="3"/>
+            <third_label label="荣誉权纠纷" level="3"/>
+            <third_label label="隐私权纠纷" level="3"/>
+            <third_label label="婚姻自主权纠纷" level="3"/>
+            <third_label label="人身自由权纠纷" level="3"/>
+            <third_label label="一般人格权纠纷" level="3">
+                <fourth_label label="平等就业权纠纷" level="4"/>
+            </third_label>
+        </second_label>
+    </first-label>
+    <first-label label="婚姻家庭、继承纠纷" level="1">
+        <second_label label="婚姻家庭纠纷" level="2">
+            <third_label label="婚约财产纠纷" level="3"/>
+            <third_label label="离婚纠纷" level="3"/>
+            <third_label label="离婚后财产纠纷" level="3"/>
+            <third_label label="离婚后损害责任纠纷" level="3"/>
+            <third_label label="婚姻无效纠纷" level="3"/>
+            <third_label label="撤销婚姻纠纷" level="3"/>
+            <third_label label="夫妻财产约定纠纷" level="3"/>
+            <third_label label="同居关系纠纷" level="3">
+                <fourth_label label="同居关系析产纠纷" level="4"/>
+                <fourth_label label="同居关系子女抚养纠纷" level="4"/>
+            </third_label>
+            <third_label label="抚养纠纷" level="3">
+                <fourth_label label="抚养费纠纷" level="4"/>
+                <fourth_label label="变更抚养关系纠纷" level="4"/>
+            </third_label>
+            <third_label label="扶养纠纷" level="3">
+                <fourth_label label="扶养费纠纷" level="4"/>
+                <fourth_label label="变更扶养关系纠纷" level="4"/>
+            </third_label>
+            <third_label label="赡养纠纷" level="3">
+                <fourth_label label="赡养费纠纷" level="4"/>
+                <fourth_label label="变更赡养关系纠纷" level="4"/>
+            </third_label>
+            <third_label label="收养关系纠纷" level="3">
+                <fourth_label label="确认收养关系纠纷" level="4"/>
+                <fourth_label label="解除收养关系纠纷" level="4"/>
+            </third_label>
+            <third_label label="监护权纠纷" level="3"/>
+            <third_label label="探望权纠纷" level="3"/>
+            <third_label label="分家析产纠纷" level="3"/>
+        </second_label>
+        <second_label label="继承纠纷" level="2">
+            <third_label label="法定继承纠纷" level="3">
+                <fourth_label label="转继承纠纷" level="4"/>
+                <fourth_label label="代位继承纠纷" level="4"/>
+            </third_label>
+            <third_label label="遗嘱继承纠纷" level="3"/>
+            <third_label label="被继承人债务清偿纠纷" level="3"/>
+            <third_label label="遗赠纠纷" level="3"/>
+            <third_label label="遗赠扶养协议纠纷" level="3"/>
+        </second_label>
+    </first-label>
+    <first-label label="物权纠纷" level="1">
+        <second_label label="不动产登记纠纷" level="2">
+            <third_label label="异议登记不当损害责任纠纷" level="3"/>
+            <third_label label="虚假登记损害责任纠纷" level="3"/>
+        </second_label>
+        <second_label label="物权保护纠纷" level="2">
+            <third_label label="物权确认纠纷" level="3">
+                <fourth_label label="所有权确认纠纷" level="4"/>
+                <fourth_label label="用益物权确认纠纷" level="4"/>
+                <fourth_label label="担保物权确认纠纷" level="4"/>
+            </third_label>
+            <third_label label="返还原物纠纷" level="3"/>
+            <third_label label="排除妨害纠纷" level="3"/>
+            <third_label label="消除危险纠纷" level="3"/>
+            <third_label label="修理" level="3"/>
+            <third_label label="恢复原状纠纷" level="3"/>
+            <third_label label="财产损害赔偿纠纷" level="3"/>
+        </second_label>
+        <second_label label="所有权纠纷" level="2">
+            <third_label label="侵害集体经济组织成员权益纠纷" level="3"/>
+            <third_label label="建筑物区分所有权纠纷" level="3">
+                <fourth_label label="业主专有权纠纷" level="4"/>
+                <fourth_label label="业主共有权纠纷" level="4"/>
+                <fourth_label label="车位纠纷" level="4"/>
+                <fourth_label label="车库纠纷" level="4"/>
+            </third_label>
+            <third_label label="业主撤销权纠纷" level="3"/>
+            <third_label label="业主知情权纠纷" level="3"/>
+            <third_label label="遗失物返还纠纷" level="3"/>
+            <third_label label="漂流物返还纠纷" level="3"/>
+            <third_label label="埋藏物返还纠纷" level="3"/>
+            <third_label label="隐藏物返还纠纷" level="3"/>
+            <third_label label="相邻关系纠纷" level="3">
+                <fourth_label label="相邻用水、排水纠纷" level="4"/>
+                <fourth_label label="相邻通行纠纷" level="4"/>
+                <fourth_label label="相邻土地、建筑物利用关系纠纷" level="4"/>
+                <fourth_label label="相邻通风纠纷" level="4"/>
+                <fourth_label label="相邻采光、日照纠纷" level="4"/>
+                <fourth_label label="相邻污染侵害纠纷" level="4"/>
+                <fourth_label label="相邻损害防免关系纠纷" level="4"/>
+            </third_label>
+            <third_label label="共有纠纷" level="3">
+                <fourth_label label="共有权确认纠纷" level="4"/>
+                <fourth_label label="共有物分割纠纷" level="4"/>
+                <fourth_label label="共有人优先购买权纠纷" level="4"/>
+            </third_label>
+        </second_label>
+        <second_label label="用益物权纠纷" level="2">
+            <third_label label="海域使用权纠纷" level="3"/>
+            <third_label label="探矿权纠纷" level="3"/>
+            <third_label label="采矿权纠纷" level="3"/>
+            <third_label label="取水权纠纷" level="3"/>
+            <third_label label="养殖权纠纷" level="3"/>
+            <third_label label="捕捞权纠纷" level="3"/>
+            <third_label label="土地承包经营权纠纷" level="3">
+                <fourth_label label="土地承包经营权确认纠纷" level="4"/>
+                <fourth_label label="承包地征收补偿费用分配纠纷" level="4"/>
+                <fourth_label label="土地承包经营权继承纠纷" level="4"/>
+            </third_label>
+            <third_label label="建设用地使用权纠纷" level="3"/>
+            <third_label label="宅基地使用权纠纷" level="3"/>
+            <third_label label="地役权纠纷" level="3"/>
+        </second_label>
+        <second_label label="担保物权纠纷" level="2">
+            <third_label label="抵押权纠纷" level="3">
+                <fourth_label label="建筑物和其他土地附着物抵押权纠纷" level="4"/>
+                <fourth_label label="在建建筑物抵押权纠纷" level="4"/>
+                <fourth_label label="建设用地使用权抵押权纠纷" level="4"/>
+                <fourth_label label="土地承包经营权抵押权纠纷" level="4"/>
+                <fourth_label label="动产抵押权纠纷" level="4"/>
+                <fourth_label label="在建船舶、航空器抵押权纠纷" level="4"/>
+                <fourth_label label="动产浮动抵押权纠纷" level="4"/>
+                <fourth_label label="最高额抵押权纠纷" level="4"/>
+            </third_label>
+            <third_label label="质权纠纷" level="3">
+                <fourth_label label="动产质权纠纷" level="4"/>
+                <fourth_label label="转质权纠纷" level="4"/>
+                <fourth_label label="最高额质权纠纷" level="4"/>
+                <fourth_label label="票据质权纠纷" level="4"/>
+                <fourth_label label="债券质权纠纷" level="4"/>
+                <fourth_label label="存单质权纠纷" level="4"/>
+                <fourth_label label="仓单质权纠纷" level="4"/>
+                <fourth_label label="提单质权纠纷" level="4"/>
+                <fourth_label label="股权质权纠纷" level="4"/>
+                <fourth_label label="基金份额质权纠纷" level="4"/>
+                <fourth_label label="知识产权质权纠纷" level="4"/>
+                <fourth_label label="应收账款质权纠纷" level="4"/>
+            </third_label>
+            <third_label label="留置权纠纷" level="3"/>
+        </second_label>
+        <second_label label="占有保护纠纷" level="2">
+            <third_label label="占有物返还纠纷" level="3"/>
+            <third_label label="占有排除妨害纠纷" level="3"/>
+            <third_label label="占有消除危险纠纷" level="3"/>
+            <third_label label="占有物损害赔偿纠纷" level="3"/>
+        </second_label>
+    </first-label>
+    <first-label label="合同、无因管理、不当得利纠纷" level="1">
+        <second_label label="合同纠纷" level="2">
+            <third_label label="缔约过失责任纠纷" level="3"/>
+            <third_label label="确认合同效力纠纷" level="3">
+                <fourth_label label="确认合同有效纠纷" level="4"/>
+                <fourth_label label="确认合同无效纠纷" level="4"/>
+            </third_label>
+            <third_label label="债权人代位权纠纷" level="3"/>
+            <third_label label="债权人撤销权纠纷" level="3"/>
+            <third_label label="债权转让合同纠纷" level="3"/>
+            <third_label label="债务转移合同纠纷" level="3"/>
+            <third_label label="债权债务概括转移合同纠纷" level="3"/>
+            <third_label label="悬赏广告纠纷" level="3"/>
+            <third_label label="买卖合同纠纷" level="3">
+                <fourth_label label="分期付款买卖合同纠纷" level="4"/>
+                <fourth_label label="凭样品买卖合同纠纷" level="4"/>
+                <fourth_label label="试用买卖合同纠纷" level="4"/>
+                <fourth_label label="互易纠纷" level="4"/>
+                <fourth_label label="国际货物买卖合同纠纷" level="4"/>
+                <fourth_label label="网络购物合同纠纷" level="4"/>
+                <fourth_label label="电视购物合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="招标投标买卖合同纠纷" level="3"/>
+            <third_label label="拍卖合同纠纷" level="3"/>
+            <third_label label="建设用地使用权合同纠纷" level="3">
+                <fourth_label label="建设用地使用权出让合同纠纷" level="4"/>
+                <fourth_label label="建设用地使用权转让合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="临时用地合同纠纷" level="3"/>
+            <third_label label="探矿权转让合同纠纷" level="3"/>
+            <third_label label="采矿权转让合同纠纷" level="3"/>
+            <third_label label="房地产开发经营合同纠纷" level="3">
+                <fourth_label label="委托代建合同纠纷" level="4"/>
+                <fourth_label label="合资、合作开发房地产合同纠纷" level="4"/>
+                <fourth_label label="项目转让合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="房屋买卖合同纠纷" level="3">
+                <fourth_label label="商品房预约合同纠纷" level="4"/>
+                <fourth_label label="商品房预售合同纠纷" level="4"/>
+                <fourth_label label="商品房销售合同纠纷" level="4"/>
+                <fourth_label label="商品房委托代理销售合同纠纷" level="4"/>
+                <fourth_label label="经济适用房转让合同纠纷" level="4"/>
+                <fourth_label label="农村房屋买卖合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="房屋拆迁安置补偿合同纠纷" level="3"/>
+            <third_label label="供用电合同纠纷" level="3"/>
+            <third_label label="供用水合同纠纷" level="3"/>
+            <third_label label="供用气合同纠纷" level="3"/>
+            <third_label label="供用热力合同纠纷" level="3"/>
+            <third_label label="赠与合同纠纷" level="3">
+                <fourth_label label="公益事业捐赠合同纠纷" level="4"/>
+                <fourth_label label="附义务赠与合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="借款合同纠纷" level="3">
+                <fourth_label label="金融借款合同纠纷" level="4"/>
+                <fourth_label label="同业拆借纠纷" level="4"/>
+                <fourth_label label="企业借贷纠纷" level="4"/>
+                <fourth_label label="民间借贷纠纷" level="4"/>
+                <fourth_label label="小额借款合同纠纷" level="4"/>
+                <fourth_label label="金融不良债权转让合同纠纷" level="4"/>
+                <fourth_label label="金融不良债权追偿纠纷" level="4"/>
+            </third_label>
+            <third_label label="保证合同纠纷" level="3"/>
+            <third_label label="抵押合同纠纷" level="3"/>
+            <third_label label="质押合同纠纷" level="3"/>
+            <third_label label="定金合同纠纷" level="3"/>
+            <third_label label="进出口押汇纠纷" level="3"/>
+            <third_label label="储蓄存款合同纠纷" level="3"/>
+            <third_label label="银行卡纠纷" level="3">
+                <fourth_label label="借记卡纠纷" level="4"/>
+                <fourth_label label="信用卡纠纷" level="4"/>
+            </third_label>
+            <third_label label="租赁合同纠纷" level="3">
+                <fourth_label label="土地租赁合同纠纷" level="4"/>
+                <fourth_label label="房屋租赁合同纠纷" level="4"/>
+                <fourth_label label="车辆租赁合同纠纷" level="4"/>
+                <fourth_label label="建筑设备租赁合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="融资租赁合同纠纷" level="3"/>
+            <third_label label="承揽合同纠纷" level="3">
+                <fourth_label label="加工合同纠纷" level="4"/>
+                <fourth_label label="定作合同纠纷" level="4"/>
+                <fourth_label label="修理合同纠纷" level="4"/>
+                <fourth_label label="复制合同纠纷" level="4"/>
+                <fourth_label label="测试合同纠纷" level="4"/>
+                <fourth_label label="检验合同纠纷" level="4"/>
+                <fourth_label label="铁路机车、车辆建造合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="建设工程合同纠纷" level="3">
+                <fourth_label label="建设工程勘察合同纠纷" level="4"/>
+                <fourth_label label="建设工程设计合同纠纷" level="4"/>
+                <fourth_label label="建设工程施工合同纠纷" level="4"/>
+                <fourth_label label="建设工程价款优先受偿权纠纷" level="4"/>
+                <fourth_label label="建设工程分包合同纠纷" level="4"/>
+                <fourth_label label="建设工程监理合同纠纷" level="4"/>
+                <fourth_label label="装饰装修合同纠纷" level="4"/>
+                <fourth_label label="铁路修建合同纠纷" level="4"/>
+                <fourth_label label="农村建房施工合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="运输合同纠纷" level="3">
+                <fourth_label label="公路旅客运输合同纠纷" level="4"/>
+                <fourth_label label="公路货物运输合同纠纷" level="4"/>
+                <fourth_label label="水路旅客运输合同纠纷" level="4"/>
+                <fourth_label label="水路货物运输合同纠纷" level="4"/>
+                <fourth_label label="航空旅客运输合同纠纷" level="4"/>
+                <fourth_label label="航空货物运输合同纠纷" level="4"/>
+                <fourth_label label="出租汽车运输合同纠纷" level="4"/>
+                <fourth_label label="管道运输合同纠纷" level="4"/>
+                <fourth_label label="城市公交运输合同纠纷" level="4"/>
+                <fourth_label label="联合运输合同纠纷" level="4"/>
+                <fourth_label label="多式联运合同纠纷" level="4"/>
+                <fourth_label label="铁路货物运输合同纠纷" level="4"/>
+                <fourth_label label="铁路旅客运输合同纠纷" level="4"/>
+                <fourth_label label="铁路行李运输合同纠纷" level="4"/>
+                <fourth_label label="铁路包裹运输合同纠纷" level="4"/>
+                <fourth_label label="国际铁路联运合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="保管合同纠纷" level="3"/>
+            <third_label label="仓储合同纠纷" level="3"/>
+            <third_label label="委托合同纠纷" level="3">
+                <fourth_label label="进出口代理合同纠纷" level="4"/>
+                <fourth_label label="货运代理合同纠纷" level="4"/>
+                <fourth_label label="民用航空运输销售代理合同纠纷" level="4"/>
+                <fourth_label label="诉讼、仲裁、人民调解代理合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="委托理财合同纠纷" level="3">
+                <fourth_label label="金融委托理财合同纠纷" level="4"/>
+                <fourth_label label="民间委托理财合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="行纪合同纠纷" level="3"/>
+            <third_label label="居间合同纠纷" level="3"/>
+            <third_label label="补偿贸易纠纷" level="3"/>
+            <third_label label="借用合同纠纷" level="3"/>
+            <third_label label="典当纠纷" level="3"/>
+            <third_label label="合伙协议纠纷" level="3"/>
+            <third_label label="种植" level="3"/>
+            <third_label label="彩票" level="3"/>
+            <third_label label="中外合作勘探开发自然资源合同纠纷" level="3"/>
+            <third_label label="农业承包合同纠纷" level="3"/>
+            <third_label label="林业承包合同纠纷" level="3"/>
+            <third_label label="渔业承包合同纠纷" level="3"/>
+            <third_label label="牧业承包合同纠纷" level="3"/>
+            <third_label label="农村土地承包合同纠纷" level="3">
+                <fourth_label label="土地承包经营权转包合同纠纷" level="4"/>
+                <fourth_label label="土地承包经营权转让合同纠纷" level="4"/>
+                <fourth_label label="土地承包经营权互换合同纠纷" level="4"/>
+                <fourth_label label="土地承包经营权入股合同纠纷" level="4"/>
+                <fourth_label label="土地承包经营权抵押合同纠纷" level="4"/>
+                <fourth_label label="土地承包经营权出租合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="服务合同纠纷" level="3">
+                <fourth_label label="电信服务合同纠纷" level="4"/>
+                <fourth_label label="邮寄服务合同纠纷" level="4"/>
+                <fourth_label label="医疗服务合同纠纷" level="4"/>
+                <fourth_label label="法律服务合同纠纷" level="4"/>
+                <fourth_label label="旅游合同纠纷" level="4"/>
+                <fourth_label label="房地产咨询合同纠纷" level="4"/>
+                <fourth_label label="房地产价格评估合同纠纷" level="4"/>
+                <fourth_label label="旅店服务合同纠纷" level="4"/>
+                <fourth_label label="财会服务合同纠纷" level="4"/>
+                <fourth_label label="餐饮服务合同纠纷" level="4"/>
+                <fourth_label label="娱乐服务合同纠纷" level="4"/>
+                <fourth_label label="有线电视服务合同纠纷" level="4"/>
+                <fourth_label label="网络服务合同纠纷" level="4"/>
+                <fourth_label label="教育培训合同纠纷" level="4"/>
+                <fourth_label label="物业服务合同纠纷" level="4"/>
+                <fourth_label label="家政服务合同纠纷" level="4"/>
+                <fourth_label label="庆典服务合同纠纷" level="4"/>
+                <fourth_label label="殡葬服务合同纠纷" level="4"/>
+                <fourth_label label="农业技术服务合同纠纷" level="4"/>
+                <fourth_label label="农机作业服务合同纠纷" level="4"/>
+                <fourth_label label="保安服务合同纠纷" level="4"/>
+                <fourth_label label="银行结算合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="演出合同纠纷" level="3"/>
+            <third_label label="劳务合同纠纷" level="3"/>
+            <third_label label="离退休人员返聘合同纠纷" level="3"/>
+            <third_label label="广告合同纠纷" level="3"/>
+            <third_label label="展览合同纠纷" level="3"/>
+            <third_label label="追偿权纠纷" level="3"/>
+            <third_label label="请求确认人民调解协议效力" level="3"/>
+        </second_label>
+        <second_label label="不当得利纠纷" level="2">
+            <third_label label="不当得利纠纷" level="3"/>
+        </second_label>
+        <second_label label="无因管理纠纷" level="2">
+            <third_label label="无因管理纠纷" level="3"/>
+        </second_label>
+    </first-label>
+    <first-label label="知识产权与竞争纠纷" level="1">
+        <second_label label="知识产权合同纠纷" level="2">
+            <third_label label="著作权合同纠纷" level="3">
+                <fourth_label label="委托创作合同纠纷" level="4"/>
+                <fourth_label label="合作创作合同纠纷" level="4"/>
+                <fourth_label label="著作权转让合同纠纷" level="4"/>
+                <fourth_label label="著作权许可使用合同纠纷" level="4"/>
+                <fourth_label label="出版合同纠纷" level="4"/>
+                <fourth_label label="表演合同纠纷" level="4"/>
+                <fourth_label label="音像制品制作合同纠纷" level="4"/>
+                <fourth_label label="广播电视播放合同纠纷" level="4"/>
+                <fourth_label label="邻接权转让合同纠纷" level="4"/>
+                <fourth_label label="邻接权许可使用合同纠纷" level="4"/>
+                <fourth_label label="计算机软件开发合同纠纷" level="4"/>
+                <fourth_label label="计算机软件著作权转让合同纠纷" level="4"/>
+                <fourth_label label="计算机软件著作权许可使用合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="商标合同纠纷" level="3">
+                <fourth_label label="商标权转让合同纠纷" level="4"/>
+                <fourth_label label="商标使用许可合同纠纷" level="4"/>
+                <fourth_label label="商标代理合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="专利合同纠纷" level="3">
+                <fourth_label label="专利申请权转让合同纠纷" level="4"/>
+                <fourth_label label="专利权转让合同纠纷" level="4"/>
+                <fourth_label label="发明专利实施许可合同纠纷" level="4"/>
+                <fourth_label label="实用新型专利实施许可合同纠纷" level="4"/>
+                <fourth_label label="外观设计专利实施许可合同纠纷" level="4"/>
+                <fourth_label label="专利代理合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="植物新品种合同纠纷" level="3">
+                <fourth_label label="植物新品种育种合同纠纷" level="4"/>
+                <fourth_label label="植物新品种申请权转让合同纠纷" level="4"/>
+                <fourth_label label="植物新品种权转让合同纠纷" level="4"/>
+                <fourth_label label="植物新品种实施许可合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="集成电路布图设计合同纠纷" level="3">
+                <fourth_label label="集成电路布图设计创作合同纠纷" level="4"/>
+                <fourth_label label="集成电路布图设计专有权转让合同纠纷" level="4"/>
+                <fourth_label label="集成电路布图设计许可使用合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="商业秘密合同纠纷" level="3">
+                <fourth_label label="技术秘密让与合同纠纷" level="4"/>
+                <fourth_label label="技术秘密许可使用合同纠纷" level="4"/>
+                <fourth_label label="经营秘密让与合同纠纷" level="4"/>
+                <fourth_label label="经营秘密许可使用合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="技术合同纠纷" level="3">
+                <fourth_label label="技术委托开发合同纠纷" level="4"/>
+                <fourth_label label="技术合作开发合同纠纷" level="4"/>
+                <fourth_label label="技术转化合同纠纷" level="4"/>
+                <fourth_label label="技术转让合同纠纷" level="4"/>
+                <fourth_label label="技术咨询合同纠纷" level="4"/>
+                <fourth_label label="技术服务合同纠纷" level="4"/>
+                <fourth_label label="技术培训合同纠纷" level="4"/>
+                <fourth_label label="技术中介合同纠纷" level="4"/>
+                <fourth_label label="技术进口合同纠纷" level="4"/>
+                <fourth_label label="技术出口合同纠纷" level="4"/>
+                <fourth_label label="职务技术成果完成人奖励、报酬纠纷" level="4"/>
+                <fourth_label label="技术成果完成人署名权、荣誉权、奖励权纠纷" level="4"/>
+            </third_label>
+            <third_label label="特许经营合同纠纷" level="3"/>
+            <third_label label="企业名称（商号）合同纠纷" level="3">
+                <fourth_label label="企业名称（商号" level="4"/>
+                <fourth_label label="企业名称（商号" level="4"/>
+            </third_label>
+            <third_label label="特殊标志合同纠纷" level="3"/>
+            <third_label label="网络域名合同纠纷" level="3">
+                <fourth_label label="网络域名注册合同纠纷" level="4"/>
+                <fourth_label label="网络域名转让合同纠纷" level="4"/>
+                <fourth_label label="网络域名许可使用合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="知识产权质押合同纠纷" level="3"/>
+        </second_label>
+        <second_label label="知识产权权属" level="2">
+            <third_label label="著作权权属" level="3">
+                <fourth_label label="著作权权属纠纷" level="4"/>
+                <fourth_label label="侵害作品发表权纠纷" level="4"/>
+                <fourth_label label="侵害作品署名权纠纷" level="4"/>
+                <fourth_label label="侵害作品修改权纠纷" level="4"/>
+                <fourth_label label="侵害保护作品完整权纠纷" level="4"/>
+                <fourth_label label="侵害作品复制权纠纷" level="4"/>
+                <fourth_label label="侵害作品发行权纠纷" level="4"/>
+                <fourth_label label="侵害作品出租权纠纷" level="4"/>
+                <fourth_label label="侵害作品展览权纠纷" level="4"/>
+                <fourth_label label="侵害作品表演权纠纷" level="4"/>
+                <fourth_label label="侵害作品放映权纠纷" level="4"/>
+                <fourth_label label="侵害作品广播权纠纷" level="4"/>
+                <fourth_label label="侵害作品信息网络传播权纠纷" level="4"/>
+                <fourth_label label="侵害作品摄制权纠纷" level="4"/>
+                <fourth_label label="侵害作品改编权纠纷" level="4"/>
+                <fourth_label label="侵害作品翻译权纠纷" level="4"/>
+                <fourth_label label="侵害作品汇编权纠纷" level="4"/>
+                <fourth_label label="侵害其他著作财产权纠纷" level="4"/>
+                <fourth_label label="出版者权权属纠纷" level="4"/>
+                <fourth_label label="表演者权权属纠纷" level="4"/>
+                <fourth_label label="录音录像制作者权权属纠纷" level="4"/>
+                <fourth_label label="广播组织权权属纠纷" level="4"/>
+                <fourth_label label="侵害出版者权纠纷" level="4"/>
+                <fourth_label label="侵害表演者权纠纷" level="4"/>
+                <fourth_label label="侵害录音录像制作者权纠纷" level="4"/>
+                <fourth_label label="侵害广播组织权纠纷" level="4"/>
+                <fourth_label label="计算机软件著作权权属纠纷" level="4"/>
+                <fourth_label label="侵害计算机软件著作权纠纷" level="4"/>
+            </third_label>
+            <third_label label="商标权权属" level="3">
+                <fourth_label label="商标权权属纠纷" level="4"/>
+                <fourth_label label="侵害商标权纠纷" level="4"/>
+            </third_label>
+            <third_label label="专利权权属" level="3">
+                <fourth_label label="专利申请权权属纠纷" level="4"/>
+                <fourth_label label="专利权权属纠纷" level="4"/>
+                <fourth_label label="侵害发明专利权纠纷" level="4"/>
+                <fourth_label label="侵害实用新型专利权纠纷" level="4"/>
+                <fourth_label label="侵害外观设计专利权纠纷" level="4"/>
+                <fourth_label label="假冒他人专利纠纷" level="4"/>
+                <fourth_label label="发明专利临时保护期使用费纠纷" level="4"/>
+                <fourth_label label="职务发明创造发明人、设计人奖励、报酬纠纷" level="4"/>
+                <fourth_label label="发明创造发明人、设计人署名权纠纷" level="4"/>
+            </third_label>
+            <third_label label="植物新品种权权属" level="3">
+                <fourth_label label="植物新品种申请权权属纠纷" level="4"/>
+                <fourth_label label="植物新品种权权属纠纷" level="4"/>
+                <fourth_label label="侵害植物新品种权纠纷" level="4"/>
+                <fourth_label label="植物新品种临时保护期使用费纠纷" level="4"/>
+            </third_label>
+            <third_label label="集成电路布图设计专有权权属" level="3">
+                <fourth_label label="集成电路布图设计专有权权属纠纷" level="4"/>
+                <fourth_label label="侵害集成电路布图设计专有权纠纷" level="4"/>
+            </third_label>
+            <third_label label="侵害企业名称（商号）权纠纷" level="3"/>
+            <third_label label="侵害特殊标志专有权纠纷" level="3"/>
+            <third_label label="网络域名权属" level="3">
+                <fourth_label label="网络域名权属纠纷" level="4"/>
+                <fourth_label label="侵害网络域名纠纷" level="4"/>
+            </third_label>
+            <third_label label="发现权纠纷" level="3"/>
+            <third_label label="发明权纠纷" level="3"/>
+            <third_label label="其他科技成果权纠纷" level="3"/>
+            <third_label label="确认不侵害知识产权纠纷" level="3">
+                <fourth_label label="确认不侵害专利权纠纷" level="4"/>
+                <fourth_label label="确认不侵害商标权纠纷" level="4"/>
+                <fourth_label label="确认不侵害著作权纠纷" level="4"/>
+                <fourth_label label="确认不侵害植物新品种权纠纷" level="4"/>
+                <fourth_label label="确认不侵害集成电路布图设计专用权纠纷" level="4"/>
+                <fourth_label label="确认不侵害计算机软件著作权纠纷" level="4"/>
+            </third_label>
+            <third_label label="因申请知识产权临时措施损害责任纠纷" level="3">
+                <fourth_label label="因申请诉前停止侵害专利权损害责任纠纷" level="4"/>
+                <fourth_label label="因申请诉前停止侵害注册商标专用权损害责任纠纷" level="4"/>
+                <fourth_label label="因申请诉前停止侵害著作权损害责任纠纷" level="4"/>
+                <fourth_label label="因申请诉前停止侵害植物新品种权损害责任纠纷" level="4"/>
+                <fourth_label label="因申请海关知识产权保护措施损害责任纠纷" level="4"/>
+                <fourth_label label="因申请诉前停止侵害计算机软件著作权损害责任纠纷" level="4"/>
+                <fourth_label label="因申请诉前停止侵害集成电路布图设计专用权损害责任纠纷" level="4"/>
+            </third_label>
+            <third_label label="因恶意提起知识产权诉讼损害责任纠纷" level="3"/>
+            <third_label label="专利权宣告无效后返还费用纠纷" level="3"/>
+        </second_label>
+        <second_label label="不正当竞争纠纷" level="2">
+            <third_label label="仿冒纠纷" level="3">
+                <fourth_label label="擅自使用知名商品特有名称、包装、装潢纠纷" level="4"/>
+                <fourth_label label="擅自使用他人企业名称、姓名纠纷" level="4"/>
+                <fourth_label label="伪造、冒用产品质量标志纠纷" level="4"/>
+                <fourth_label label="伪造产地纠纷" level="4"/>
+            </third_label>
+            <third_label label="商业贿赂不正当竞争纠纷" level="3"/>
+            <third_label label="虚假宣传纠纷" level="3"/>
+            <third_label label="侵害商业秘密纠纷" level="3">
+                <fourth_label label="侵害技术秘密纠纷" level="4"/>
+                <fourth_label label="侵害经营秘密纠纷" level="4"/>
+            </third_label>
+            <third_label label="低价倾销不正当竞争纠纷" level="3"/>
+            <third_label label="捆绑销售不正当竞争纠纷" level="3"/>
+            <third_label label="有奖销售纠纷" level="3"/>
+            <third_label label="商业诋毁纠纷" level="3"/>
+            <third_label label="串通投标不正当竞争纠纷" level="3"/>
+        </second_label>
+        <second_label label="垄断纠纷" level="2">
+            <third_label label="垄断协议纠纷" level="3">
+                <fourth_label label="横向垄断协议纠纷" level="4"/>
+                <fourth_label label="纵向垄断协议纠纷" level="4"/>
+            </third_label>
+            <third_label label="滥用市场支配地位纠纷" level="3">
+                <fourth_label label="垄断定价纠纷" level="4"/>
+                <fourth_label label="掠夺定价纠纷" level="4"/>
+                <fourth_label label="拒绝交易纠纷" level="4"/>
+                <fourth_label label="限定交易纠纷" level="4"/>
+                <fourth_label label="捆绑交易纠纷" level="4"/>
+                <fourth_label label="差别待遇纠纷" level="4"/>
+            </third_label>
+            <third_label label="经营者集中纠纷" level="3"/>
+        </second_label>
+    </first-label>
+    <first-label label="劳动争议、人事争议" level="1">
+        <second_label label="劳动争议" level="2">
+            <third_label label="劳动合同纠纷" level="3">
+                <fourth_label label="确认劳动关系纠纷" level="4"/>
+                <fourth_label label="集体合同纠纷" level="4"/>
+                <fourth_label label="劳务派遣合同纠纷" level="4"/>
+                <fourth_label label="非全日制用工纠纷" level="4"/>
+                <fourth_label label="追索劳动报酬纠纷" level="4"/>
+                <fourth_label label="经济补偿金纠纷" level="4"/>
+                <fourth_label label="竞业限制纠纷" level="4"/>
+            </third_label>
+            <third_label label="社会保险纠纷" level="3">
+                <fourth_label label="养老保险待遇纠纷" level="4"/>
+                <fourth_label label="工伤保险待遇纠纷" level="4"/>
+                <fourth_label label="医疗保险待遇纠纷" level="4"/>
+                <fourth_label label="生育保险待遇纠纷" level="4"/>
+                <fourth_label label="失业保险待遇纠纷" level="4"/>
+            </third_label>
+            <third_label label="福利待遇纠纷" level="3"/>
+        </second_label>
+        <second_label label="人事争议" level="2">
+            <third_label label="人事争议" level="3">
+                <fourth_label label="辞职争议" level="4"/>
+                <fourth_label label="辞退争议" level="4"/>
+                <fourth_label label="聘用合同争议" level="4"/>
+            </third_label>
+        </second_label>
+    </first-label>
+    <first-label label="海事海商纠纷" level="1">
+        <second_label label="海事海商纠纷" level="2">
+            <third_label label="船舶碰撞损害责任纠纷" level="3"/>
+            <third_label label="船舶触碰损害责任纠纷" level="3"/>
+            <third_label label="船舶损坏空中设施" level="3"/>
+            <third_label label="船舶污染损害责任纠纷" level="3"/>
+            <third_label label="海上" level="3"/>
+            <third_label label="海上" level="3"/>
+            <third_label label="海上" level="3"/>
+            <third_label label="海上" level="3"/>
+            <third_label label="非法留置船舶" level="3"/>
+            <third_label label="海上" level="3"/>
+            <third_label label="海上" level="3"/>
+            <third_label label="海上" level="3"/>
+            <third_label label="船舶经营管理合同纠纷" level="3"/>
+            <third_label label="船舶买卖合同纠纷" level="3"/>
+            <third_label label="船舶建造合同纠纷" level="3"/>
+            <third_label label="船舶修理合同纠纷" level="3"/>
+            <third_label label="船舶改建合同纠纷" level="3"/>
+            <third_label label="船舶拆解合同纠纷" level="3"/>
+            <third_label label="船舶抵押合同纠纷" level="3"/>
+            <third_label label="航次租船合同纠纷" level="3"/>
+            <third_label label="船舶租用合同纠纷" level="3">
+                <fourth_label label="定期租船合同纠纷" level="4"/>
+                <fourth_label label="光船租赁合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="船舶融资租赁合同纠纷" level="3"/>
+            <third_label label="海上" level="3"/>
+            <third_label label="渔船承包合同纠纷" level="3"/>
+            <third_label label="船舶属具租赁合同纠纷" level="3"/>
+            <third_label label="船舶属具保管合同纠纷" level="3"/>
+            <third_label label="海运集装箱租赁合同纠纷" level="3"/>
+            <third_label label="海运集装箱保管合同纠纷" level="3"/>
+            <third_label label="港口货物保管合同纠纷" level="3"/>
+            <third_label label="船舶代理合同纠纷" level="3"/>
+            <third_label label="海上" level="3"/>
+            <third_label label="理货合同纠纷" level="3"/>
+            <third_label label="船舶物料和备品供应合同纠纷" level="3"/>
+            <third_label label="船员劳务合同纠纷" level="3"/>
+            <third_label label="海难救助合同纠纷" level="3"/>
+            <third_label label="海上" level="3"/>
+            <third_label label="海上" level="3"/>
+            <third_label label="海上" level="3"/>
+            <third_label label="海上" level="3"/>
+            <third_label label="海上" level="3"/>
+            <third_label label="船舶营运借款合同纠纷" level="3"/>
+            <third_label label="海事担保合同纠纷" level="3"/>
+            <third_label label="航道" level="3"/>
+            <third_label label="船坞" level="3"/>
+            <third_label label="船舶检验合同纠纷" level="3"/>
+            <third_label label="海事请求担保纠纷" level="3"/>
+            <third_label label="海上" level="3"/>
+            <third_label label="港口作业重大责任事故责任纠纷" level="3"/>
+            <third_label label="港口作业纠纷" level="3"/>
+            <third_label label="共同海损纠纷" level="3"/>
+            <third_label label="海洋开发利用纠纷" level="3"/>
+            <third_label label="船舶共有纠纷" level="3"/>
+            <third_label label="船舶权属纠纷" level="3"/>
+            <third_label label="海运欺诈纠纷" level="3"/>
+            <third_label label="海事债权确权纠纷" level="3"/>
+        </second_label>
+    </first-label>
+    <first-label label="与公司、证券、保险、票据等有关的民事纠纷" level="1">
+        <second_label label="与企业有关的纠纷" level="2">
+            <third_label label="企业出资人权益确认纠纷" level="3"/>
+            <third_label label="侵害企业出资人权益纠纷" level="3"/>
+            <third_label label="企业公司制改造合同纠纷" level="3"/>
+            <third_label label="企业股份合作制改造合同纠纷" level="3"/>
+            <third_label label="企业债权转股权合同纠纷" level="3"/>
+            <third_label label="企业分立合同纠纷" level="3"/>
+            <third_label label="企业租赁经营合同纠纷" level="3"/>
+            <third_label label="企业出售合同纠纷" level="3"/>
+            <third_label label="挂靠经营合同纠纷" level="3"/>
+            <third_label label="企业兼并合同纠纷" level="3"/>
+            <third_label label="联营合同纠纷" level="3"/>
+            <third_label label="企业承包经营合同纠纷" level="3">
+                <fourth_label label="中外合资经营企业承包经营合同纠纷" level="4"/>
+                <fourth_label label="中外合作经营企业承包经营合同纠纷" level="4"/>
+                <fourth_label label="外商独资企业承包经营合同纠纷" level="4"/>
+                <fourth_label label="乡镇企业承包经营合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="中外合资经营企业合同纠纷" level="3"/>
+            <third_label label="中外合作经营企业合同纠纷" level="3"/>
+            <third_label label="股东资格确认纠纷" level="3"/>
+            <third_label label="股东名册记载纠纷" level="3"/>
+            <third_label label="请求变更公司登记纠纷" level="3"/>
+            <third_label label="股东出资纠纷" level="3"/>
+            <third_label label="新增资本认购纠纷" level="3"/>
+            <third_label label="股东知情权纠纷" level="3"/>
+            <third_label label="请求公司收购股份纠纷" level="3"/>
+            <third_label label="股权转让纠纷" level="3"/>
+            <third_label label="公司决议纠纷" level="3">
+                <fourth_label label="公司决议效力确认纠纷" level="4"/>
+                <fourth_label label="公司决议撤销纠纷" level="4"/>
+            </third_label>
+            <third_label label="公司设立纠纷" level="3"/>
+            <third_label label="公司证照返还纠纷" level="3"/>
+            <third_label label="发起人责任纠纷" level="3"/>
+            <third_label label="公司盈余分配纠纷" level="3"/>
+            <third_label label="损害股东利益责任纠纷" level="3"/>
+            <third_label label="损害公司利益责任纠纷" level="3"/>
+            <third_label label="股东损害公司债权人利益责任纠纷" level="3"/>
+            <third_label label="公司关联交易损害责任纠纷" level="3"/>
+            <third_label label="公司合并纠纷" level="3"/>
+            <third_label label="公司分立纠纷" level="3"/>
+            <third_label label="公司减资纠纷" level="3"/>
+            <third_label label="公司增资纠纷" level="3"/>
+            <third_label label="公司解散纠纷" level="3"/>
+            <third_label label="申请公司清算" level="3"/>
+            <third_label label="清算责任纠纷" level="3"/>
+            <third_label label="上市公司收购纠纷" level="3"/>
+            <third_label label="入伙纠纷" level="3"/>
+            <third_label label="退伙纠纷" level="3"/>
+            <third_label label="合伙企业财产份额转让纠纷" level="3"/>
+            <third_label label="申请破产清算" level="3"/>
+            <third_label label="申请破产重整" level="3"/>
+            <third_label label="申请破产和解" level="3"/>
+            <third_label label="请求撤销个别清偿行为纠纷" level="3"/>
+            <third_label label="请求确认债务人行为无效纠纷" level="3"/>
+            <third_label label="对外追收债权纠纷" level="3"/>
+            <third_label label="追收未缴出资纠纷" level="3"/>
+            <third_label label="追收抽逃出资纠纷" level="3"/>
+            <third_label label="追收非正常收入纠纷" level="3"/>
+            <third_label label="破产债权确认纠纷" level="3">
+                <fourth_label label="职工破产债权确认纠纷" level="4"/>
+                <fourth_label label="普通破产债权确认纠纷" level="4"/>
+            </third_label>
+            <third_label label="取回权纠纷" level="3">
+                <fourth_label label="一般取回权纠纷" level="4"/>
+                <fourth_label label="出卖人取回权纠纷" level="4"/>
+            </third_label>
+            <third_label label="破产抵销权纠纷" level="3"/>
+            <third_label label="别除权纠纷" level="3"/>
+            <third_label label="破产撤销权纠纷" level="3"/>
+            <third_label label="损害债务人利益赔偿纠纷" level="3"/>
+            <third_label label="管理人责任纠纷" level="3"/>
+            <third_label label="证券权利确认纠纷" level="3">
+                <fourth_label label="股票权利确认纠纷" level="4"/>
+                <fourth_label label="公司债券权利确认纠纷" level="4"/>
+                <fourth_label label="国债权利确认纠纷" level="4"/>
+                <fourth_label label="证券投资基金权利确认纠纷" level="4"/>
+            </third_label>
+            <third_label label="证券交易合同纠纷" level="3">
+                <fourth_label label="股票交易纠纷" level="4"/>
+                <fourth_label label="公司债券交易纠纷" level="4"/>
+                <fourth_label label="国债交易纠纷" level="4"/>
+                <fourth_label label="证券投资基金交易纠纷" level="4"/>
+            </third_label>
+            <third_label label="金融衍生品种交易纠纷" level="3"/>
+            <third_label label="证券承销合同纠纷" level="3">
+                <fourth_label label="证券代销合同纠纷" level="4"/>
+                <fourth_label label="证券包销合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="证券投资咨询纠纷" level="3"/>
+            <third_label label="证券资信评级服务合同纠纷" level="3"/>
+            <third_label label="证券回购合同纠纷" level="3">
+                <fourth_label label="股票回购合同纠纷" level="4"/>
+                <fourth_label label="国债回购合同纠纷" level="4"/>
+                <fourth_label label="公司债券回购合同纠纷" level="4"/>
+                <fourth_label label="证券投资基金回购合同纠纷" level="4"/>
+                <fourth_label label="质押式证券回购纠纷" level="4"/>
+            </third_label>
+            <third_label label="证券上市合同纠纷" level="3"/>
+            <third_label label="证券交易代理合同纠纷" level="3"/>
+            <third_label label="证券上市保荐合同纠纷" level="3"/>
+            <third_label label="证券发行纠纷" level="3">
+                <fourth_label label="证券认购纠纷" level="4"/>
+                <fourth_label label="证券发行失败纠纷" level="4"/>
+            </third_label>
+            <third_label label="证券返还纠纷" level="3"/>
+            <third_label label="证券欺诈责任纠纷" level="3">
+                <fourth_label label="证券内幕交易责任纠纷" level="4"/>
+                <fourth_label label="操纵证券交易市场责任纠纷" level="4"/>
+                <fourth_label label="证券虚假陈述责任纠纷" level="4"/>
+                <fourth_label label="欺诈客户责任纠纷" level="4"/>
+            </third_label>
+            <third_label label="证券托管纠纷" level="3"/>
+            <third_label label="证券登记" level="3"/>
+            <third_label label="融资融券交易纠纷" level="3"/>
+            <third_label label="客户交易结算资金纠纷" level="3"/>
+            <third_label label="期货经纪合同纠纷" level="3"/>
+            <third_label label="期货透支交易纠纷" level="3"/>
+            <third_label label="期货强行平仓纠纷" level="3"/>
+            <third_label label="期货实物交割纠纷" level="3"/>
+            <third_label label="期货保证合约纠纷" level="3"/>
+            <third_label label="期货交易代理合同纠纷" level="3"/>
+            <third_label label="侵占期货交易保证金纠纷" level="3"/>
+            <third_label label="期货欺诈责任纠纷" level="3"/>
+            <third_label label="操纵期货交易市场责任纠纷" level="3"/>
+            <third_label label="期货内幕交易责任纠纷" level="3"/>
+            <third_label label="期货虚假信息责任纠纷" level="3"/>
+            <third_label label="民事信托纠纷" level="3"/>
+            <third_label label="营业信托纠纷" level="3"/>
+            <third_label label="公益信托纠纷" level="3"/>
+            <third_label label="财产保险合同纠纷" level="3">
+                <fourth_label label="财产损失保险合同纠纷" level="4"/>
+                <fourth_label label="责任保险合同纠纷" level="4"/>
+                <fourth_label label="信用保险合同纠纷" level="4"/>
+                <fourth_label label="保证保险合同纠纷" level="4"/>
+                <fourth_label label="保险人代位求偿权纠纷" level="4"/>
+            </third_label>
+            <third_label label="人身保险合同纠纷" level="3">
+                <fourth_label label="人寿保险合同纠纷" level="4"/>
+                <fourth_label label="意外伤害保险合同纠纷" level="4"/>
+                <fourth_label label="健康保险合同纠纷" level="4"/>
+            </third_label>
+            <third_label label="再保险合同纠纷" level="3"/>
+            <third_label label="保险经纪合同纠纷" level="3"/>
+            <third_label label="保险代理合同纠纷" level="3"/>
+            <third_label label="进出口信用保险合同纠纷" level="3"/>
+            <third_label label="保险费纠纷" level="3"/>
+            <third_label label="票据付款请求权纠纷" level="3"/>
+            <third_label label="票据追索权纠纷" level="3"/>
+            <third_label label="票据交付请求权纠纷" level="3"/>
+            <third_label label="票据返还请求权纠纷" level="3"/>
+            <third_label label="票据损害责任纠纷" level="3"/>
+            <third_label label="票据利益返还请求权纠纷" level="3"/>
+            <third_label label="汇票回单签发请求权纠纷" level="3"/>
+            <third_label label="票据保证纠纷" level="3"/>
+            <third_label label="确认票据无效纠纷" level="3"/>
+            <third_label label="票据代理纠纷" level="3"/>
+            <third_label label="票据回购纠纷" level="3"/>
+            <third_label label="委托开立信用证纠纷" level="3"/>
+            <third_label label="信用证开证纠纷" level="3"/>
+            <third_label label="信用证议付纠纷" level="3"/>
+            <third_label label="信用证欺诈纠纷" level="3"/>
+            <third_label label="信用证融资纠纷" level="3"/>
+            <third_label label="信用证转让纠纷" level="3"/>
+        </second_label>
+    </first-label>
+    <first-label label="侵权责任纠纷" level="1">
+        <second_label label="侵权责任纠纷" level="2">
+            <third_label label="监护人责任纠纷" level="3"/>
+            <third_label label="用人单位责任纠纷" level="3"/>
+            <third_label label="劳务派遣工作人员侵权责任纠纷" level="3"/>
+            <third_label label="提供劳务者致害责任纠纷" level="3"/>
+            <third_label label="提供劳务者受害责任纠纷" level="3"/>
+            <third_label label="网络侵权责任纠纷" level="3"/>
+            <third_label label="违反安全保障义务责任纠纷" level="3">
+                <fourth_label label="公共场所管理人责任纠纷" level="4"/>
+                <fourth_label label="群众性活动组织者责任纠纷" level="4"/>
+            </third_label>
+            <third_label label="教育机构责任纠纷" level="3"/>
+            <third_label label="产品责任纠纷" level="3">
+                <fourth_label label="产品生产者责任纠纷" level="4"/>
+                <fourth_label label="产品销售者责任纠纷" level="4"/>
+                <fourth_label label="产品运输者责任纠纷" level="4"/>
+                <fourth_label label="产品仓储者责任纠纷" level="4"/>
+            </third_label>
+            <third_label label="机动车交通事故责任纠纷" level="3"/>
+            <third_label label="医疗损害责任纠纷" level="3">
+                <fourth_label label="侵害患者知情同意权责任纠纷" level="4"/>
+                <fourth_label label="医疗产品责任纠纷" level="4"/>
+            </third_label>
+            <third_label label="环境污染责任纠纷" level="3">
+                <fourth_label label="大气污染责任纠纷" level="4"/>
+                <fourth_label label="水污染责任纠纷" level="4"/>
+                <fourth_label label="噪声污染责任纠纷" level="4"/>
+                <fourth_label label="放射性污染责任纠纷" level="4"/>
+                <fourth_label label="土壤污染责任纠纷" level="4"/>
+                <fourth_label label="电子废物污染责任纠纷" level="4"/>
+                <fourth_label label="固体废物污染责任纠纷" level="4"/>
+            </third_label>
+            <third_label label="高度危险责任纠纷" level="3">
+                <fourth_label label="民用核设施损害责任纠纷" level="4"/>
+                <fourth_label label="民用航空器损害责任纠纷" level="4"/>
+                <fourth_label label="占有、使用高度危险物损害责任纠纷" level="4"/>
+                <fourth_label label="高度危险活动损害责任纠纷" level="4"/>
+                <fourth_label label="遗失、抛弃高度危险物损害责任纠纷" level="4"/>
+                <fourth_label label="非法占有高度危险物损害责任纠纷" level="4"/>
+            </third_label>
+            <third_label label="饲养动物损害责任纠纷" level="3"/>
+            <third_label label="物件损害责任纠纷" level="3">
+                <fourth_label label="物件脱落、坠落损害责任纠纷" level="4"/>
+                <fourth_label label="建筑物、构筑物倒塌损害责任纠纷" level="4"/>
+                <fourth_label label="不明抛掷物、坠落物损害责任纠纷" level="4"/>
+                <fourth_label label="堆放物倒塌致害责任纠纷" level="4"/>
+                <fourth_label label="公共道路妨碍通行损害责任纠纷" level="4"/>
+                <fourth_label label="林木折断损害责任纠纷" level="4"/>
+                <fourth_label label="地面施工、地下设施损害责任纠纷" level="4"/>
+            </third_label>
+            <third_label label="触电人身损害责任纠纷" level="3"/>
+            <third_label label="义务帮工人受害责任纠纷" level="3"/>
+            <third_label label="见义勇为人受害责任纠纷" level="3"/>
+            <third_label label="公证损害责任纠纷" level="3"/>
+            <third_label label="防卫过当损害责任纠纷" level="3"/>
+            <third_label label="紧急避险损害责任纠纷" level="3"/>
+            <third_label label="驻香港" level="3"/>
+            <third_label label="铁路运输损害责任纠纷" level="3">
+                <fourth_label label="铁路运输人身损害责任纠纷" level="4"/>
+                <fourth_label label="铁路运输财产损害责任纠纷" level="4"/>
+            </third_label>
+            <third_label label="水上运输损害责任纠纷" level="3">
+                <fourth_label label="水上运输人身损害责任纠纷" level="4"/>
+                <fourth_label label="水上运输财产损害责任纠纷" level="4"/>
+            </third_label>
+            <third_label label="航空运输损害责任纠纷" level="3">
+                <fourth_label label="航空运输人身损害责任纠纷" level="4"/>
+                <fourth_label label="航空运输财产损害责任纠纷" level="4"/>
+            </third_label>
+            <third_label label="因申请诉前财产保全损害责任纠纷" level="3"/>
+            <third_label label="因申请诉前证据保全损害责任纠纷" level="3"/>
+            <third_label label="因申请诉中财产保全损害责任纠纷" level="3"/>
+            <third_label label="因申请诉中证据保全损害责任纠纷" level="3"/>
+            <third_label label="因申请先予执行损害责任纠纷" level="3"/>
+        </second_label>
+    </first-label>
+    <first-label label="适用特殊程序案件案由" level="1">
+        <second_label label="仲裁程序案件" level="2">
+            <third_label label="申请确认仲裁协议效力" level="3"/>
+            <third_label label="申请撤销仲裁裁决" level="3"/>
+            <third_label label="申请海事请求保全" level="3">
+                <fourth_label label="申请扣押船舶" level="4"/>
+                <fourth_label label="申请拍卖扣押船舶" level="4"/>
+                <fourth_label label="申请扣押船载货物" level="4"/>
+                <fourth_label label="申请拍卖扣押船载货物" level="4"/>
+                <fourth_label label="申请扣押船用燃油及船用物料" level="4"/>
+                <fourth_label label="申请拍卖扣押船用燃油及船用物料" level="4"/>
+            </third_label>
+            <third_label label="申请海事支付令" level="3"/>
+            <third_label label="申请海事强制令" level="3"/>
+            <third_label label="申请海事证据保全" level="3"/>
+            <third_label label="申请设立海事赔偿责任限制基金" level="3"/>
+            <third_label label="申请船舶优先权催告" level="3"/>
+            <third_label label="申请海事债权登记与受偿" level="3"/>
+            <third_label label="申请执行海事仲裁裁决" level="3"/>
+            <third_label label="申请执行知识产权仲裁裁决" level="3"/>
+            <third_label label="申请执行涉外仲裁裁决" level="3"/>
+            <third_label label="申请认可和执行香港特别行政区法院民事判决" level="3"/>
+            <third_label label="申请认可和执行香港特别行政区仲裁裁决" level="3"/>
+            <third_label label="申请认可和执行澳门特别行政区法院民事判决" level="3"/>
+            <third_label label="申请认可和执行澳门特别行政区仲裁裁决" level="3"/>
+            <third_label label="申请认可和执行台湾地区法院民事判决" level="3"/>
+            <third_label label="申请认可和执行台湾地区仲裁裁决" level="3"/>
+            <third_label label="申请承认和执行外国法院民事判决" level="3"/>
+            <third_label label="申请承认和执行外国仲裁裁决" level="3"/>
+            <third_label label="案外人执行异议之诉" level="3"/>
+            <third_label label="申请执行人执行异议之诉" level="3"/>
+            <third_label label="执行分配方案异议之诉" level="3"/>
+        </second_label>
+    </first-label>
+</AY>
