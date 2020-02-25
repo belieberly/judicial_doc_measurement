@@ -2,6 +2,6 @@ venv/
 .idea/
 __pycache__/
 *.pyc
-./utils/spider/news/
+utils/spider/news/
 data/news/
 
