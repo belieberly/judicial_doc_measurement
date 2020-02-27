@@ -27,8 +27,19 @@ def levenshtein(str1,str2):
     print('差异'+str(dif[len1][len2]))
     similarity = 1-(dif[len1][len2]/max(len1,len2))
     print(similarity)
+    return similarity
 
-str1 = '今天是不是是不是是不是星期五'
-str2 = '今天星期四'
+# str1 = '今天是不是是不是是不是星期五'
+# str2 = '今天星期四'
+#
+# levenshtein(str1,str2)
 
-levenshtein(str1,str2)
+
+#应该改成分句检测
+def long_detect(str1,str2):
+    sim1 = difflib.SequenceMatcher(None, str1, str2).quick_ratio()
+    print(sim1)
+    sim2 = levenshtein(str1,str2)
+    print(sim2)
+    sim = (sim1+sim2)/2
+    return sim

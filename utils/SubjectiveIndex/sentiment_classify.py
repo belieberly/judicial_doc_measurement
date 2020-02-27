@@ -39,12 +39,21 @@ def get_sentiment_result(text):
     headers = {'Content-Type': 'application/json; charset=UTF-8'}
     response = requests.post(url=url, params=params, data=payload, headers=headers).json()
     return response
-#
-#
-#
-#
+
+def sentiment_index(str):
+    res = get_sentiment_result(str)['items'][0]
+    positive_porb = res['positive_prob']
+    negative_prob = res['negative_prob']
+    confidence = res['confidence']
+    return abs(positive_porb-negative_prob)*confidence
+    print(res['items'][0])
+
+
 if __name__ == '__main__':
-    print(get_sentiment_result('本院认为嫌疑人罪孽深重'))
-    print(get_sentiment_result('被告有醉酒作案嫌疑'))
+    # print(get_sentiment_result('本院认为嫌疑人罪孽深重'))
+    #
+    # print(get_sentiment_result('被告有醉酒作案嫌疑'))
+    str1 = '苹果是一家科技公司'
+    sentiment_index(str1)
 
 

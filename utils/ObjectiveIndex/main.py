@@ -6,15 +6,19 @@
 from xml.etree import ElementTree as etree
 import re
 import datetime, time
+import json
+import sys
+# sys.path.append(r'')
+# import
 
-standard = ['文首', '首部', '事实', '理由', '依据', '主文', '尾部', '落款', '其他']
+standard = ['文首', '首部', '事实', '理由', '依据', '主文', '尾部', '落款', '其他', '附件']
 
 
 def wenshu_analysis(root_node):
     wenshu = {'文首': [], "首部": [], "事实": [], "理由": [], "依据": [], "主文": [], "尾部": [], '落款': [], '其他': [], '附件': []}
     # 第一次循环找到关键字节点
     test = []
-    index = [-1 for i in range(9)]
+    index = [-1 for i in range(10)]
     for i in range(len(root_node)):
         if root_node[i].tag == 'WS':
             wenshu['文首'].append(root_node[i])
@@ -47,8 +51,7 @@ def wenshu_analysis(root_node):
             index[8] = i
         else:
             test.append(i)
-    print('结构事项顺序')
-    print(index)
+    print('结构事项顺序' + str(index))
     for i in range(len(test)):
         if test[i] > (max(index)):
             wenshu['其他'].append(root_node[i])
@@ -62,7 +65,7 @@ def wenshu_analysis(root_node):
 
 def acc_GCSX(index, wenshu_corr):
     # 篇章结构规范性结果，0表示正确，1表示缺少，2表示顺序错误
-    res = [0 for i in range(8)]
+    res = [0 for i in range(10)]
     for i in range(len(index)):
         if index[i] == -1:
             res[i] = 1
@@ -106,7 +109,7 @@ def acc_SLJG(wenshu, wenshu_corr):
     standard_SLJG = ['案件受理时间', '开庭时间', '适用程序', '到庭情况', '审理结果']
     index_SLJG = [-1 for i in range(5)]
     for node in wenshu['首部']:
-        print(node.tag)
+        # print(node.tag)
         if node.tag == 'SSJL':
             SSJL_txt = node.get('value')
             print('案件审理经过文本')
@@ -137,6 +140,7 @@ def acc_SLJG(wenshu, wenshu_corr):
             wenshu_corr['首部'].append('案件审理经过中' + standard_SLJG[i] + '顺序错误')
     print('案件审理经过累计错误')
     print(wenshu_corr['首部'])
+    return wenshu_corr
 
 
 def con_pun_DSR(DSR_txt, wenshu_corr):
@@ -161,9 +165,11 @@ def acc_DSR(wenshu, wenshu_corr):
                 # 没有加入YSF,DLR,QSF筛选
                 DSR_txt = subnode.get('value')
                 wenshu_corr = con_pun_DSR(DSR_txt, wenshu_corr)
-                print('当事人信息')
-                print(DSR_txt)
+                # print('当事人信息')
+                # print(DSR_txt)
                 index_DSR = [-1 for i in range(8)]
+                # if re.search(r'(男|女)',DSR_txt):
+                #     index_DSR [2] = re.search(r'(男|女)',DSR_txt).start()
                 for i in range(len(subnode)):
                     # 诉讼身份
                     if subnode[i].tag == 'SSSF':
@@ -178,14 +184,20 @@ def acc_DSR(wenshu, wenshu_corr):
                         for tmp in subnode[i]:
                             if tmp.tag == 'ZW' and tmp.get('value') == '律师':
                                 wenshu_corr['首部'].append('律师应更改为法律工作者')
+                    elif subnode[i].tag == 'XB':
+                        index_DSR[2] = re.search(r'(男|女)', DSR_txt).start()
                 # 检测顺序
                 lis_index = lis(index_DSR)
-                for i in range(len(index_DSR)):
+                error_txt = []
+                for i in range(4):
                     if index_DSR[i] == -1:
-                        wenshu_corr['首部'].append('当事人信息' + DSR_txt + '中缺少' + standard_DSR[i])
+                        error_txt.append(standard_DSR[i])
                     if index_DSR[i] != -1 and (index_DSR[i] not in lis_index):
-                        wenshu_corr['首部'].append('当事人信息' + DSR_txt + '中' + standard_DSR[i] + '顺序错误')
+                        wenshu_corr['首部'].append('当事人信息“' + DSR_txt + '”中' + standard_DSR[i] + '顺序错误，应该按照，诉讼身份，姓名，性别，出生年月日顺序书写')
+                if error_txt != '':
+                    wenshu_corr['首部'].append('当事人信息“' + DSR_txt + '”中缺少' + (','.join(error_txt)))
         break
+    print('文书首部累计错误')
     print(wenshu_corr['首部'])
     return wenshu_corr
 
@@ -226,7 +238,7 @@ def rea_SSMS(wenshu, wenshu_corr):
     AJJBQK = wenshu['事实'][0]
     AJJBQK_txt = AJJBQK.get('value')
     AJJBQK_len = len(AJJBQK_txt)
-    AJJBQK_len, YGSCD_len, BGBCD_len, CMSSD_len, ZJD_len = 0
+    YGSCD_len, BGBCD_len, CMSSD_len, ZJD_len = 0, 0, 0, 0
     for node in AJJBQK:
         # 原告诉称段
         if node.tag == 'YGSCD':
@@ -247,8 +259,8 @@ def rea_SSMS(wenshu, wenshu_corr):
         elif node.tag == 'ZJD':
             ZJD_txt = node.get('value')
             ZJD_len = len(ZJD_txt)
-
     print(AJJBQK_len, YGSCD_len, BGBCD_len, CMSSD_len, ZJD_len)
+    return wenshu_corr, AJJBQK_len, YGSCD_len, BGBCD_len, CMSSD_len, ZJD_len
 
 
 # rea_SSMS(wenshu)
@@ -285,16 +297,20 @@ def rea_ZYJD(wenshu, wenshu_corr):
 # 判断判决内容中标点符号使用一致性
 def con_pun_PJJG(PJJG_txt, wenshu_corr):
     # 返回所有匹配的位置
+    print('判决结果')
     print(PJJG_txt)
-    punc_mao = [i.start() for i in re.finditer(r'.*(判决|裁定)如下.*', PJJG_txt)]
+    print('我在这里啊啊啊啊啊啊')
+    print(wenshu_corr)
+    punc_mao = [i.start() for i in re.finditer(r'(判决|裁定)如下', PJJG_txt)]
     for punc in punc_mao:
         if PJJG_txt[punc + 4] != '：':
             wenshu_corr['主文'].append('标点错误：判决（裁定）如下后应该使用冒号')
-    punc_fen = [i.start() for i in re.finditer(r'.*(二|三|四|五|六|七|八|九|十)、.*', PJJG_txt)]
+    punc_fen = [i.start() for i in re.finditer(r'(二|三|四|五|六|七|八|九|十)、', PJJG_txt)]
+    print('分号位置:' + str(punc_fen))
     for punc in punc_fen:
         if PJJG_txt[punc - 1] != '；':
             wenshu_corr['主文'].append('标点错误：分项之前应该使用分号')
-    punc_dun = [i.start() for i in re.finditer(r'.*(一|二|三|四|五|六|七|八|九|十)[^\w\u4e00-\u9fa5]+.*', PJJG_txt)]
+    punc_dun = [i.start() for i in re.finditer(r'(一|二|三|四|五|六|七|八|九|十)[^\w\u4e00-\u9fa5]+', PJJG_txt)]
     for punc in punc_dun:
         if PJJG_txt[punc + 1] != '、':
             wenshu_corr['主文'].append('标点错误：分项之后应该用顿号')
@@ -308,6 +324,9 @@ def com_PJNR(wenshu, wenshu_corr):
     standard_PJNR = ['数量', '金额类型', '判决执行期限', '义务人']
     PJJG_node = wenshu['主文'][0]
     PJJG_txt = PJJG_node.get('value')
+    print('判决主文：' + PJJG_txt)
+    print('wozaizhe aaaaaaaaaa')
+    print(wenshu_corr)
     wenshu_corr = con_pun_PJJG(PJJG_txt, wenshu_corr)
     # 判决结果中包不包含金额
     flag_ = 0
@@ -323,7 +342,7 @@ def com_PJNR(wenshu, wenshu_corr):
                 if subnode.tag == 'PJJE':
                     for i in range(len(subnode)):
                         if subnode[i].tag == 'JE':
-                            print('jine')
+                            # print('jine')
                             index_PJNR[0] = 1
                         elif subnode[i].tag == 'JELX':
                             index_PJNR[1] = 1
@@ -413,9 +432,10 @@ def aut_AY(root_node, wenshu_corr):
                     break
             break
     if ay_test == '':
-        wenshu_corr['SSJL'].append('真实性：未标明案由')
+        wenshu_corr['首部'].append('真实性：未标明案由')
     if ay_test not in anyou_list:
-        wenshu_corr['SSJL'].append('真实性：案由不在列表中，可能为编造案由')
+        wenshu_corr['首部'].append('真实性：案由不在列表中，可能为编造案由')
+    return wenshu_corr
 
 
 # aut_AY(root_node,wenshu_corr)
@@ -542,29 +562,63 @@ def baba(filepath):
     xml_file = etree.parse(filepath)
     root_node = xml_file.getroot()[0]
     # wenshu_content = {'文首': [], "首部": [], "事实": [], "理由": [], "依据": [], "主文": [], "尾部": [], '落款': [], '其他': []}
-    wenshu_corr = {'文首': [], "首部": [], "事实": [], "理由": [], "依据": [], "主文": [], "尾部": [], '落款': [], '其他': []}
+    wenshu_corr = {'文首': [], "首部": [], "事实": [], "理由": [], "依据": [], "主文": [], "尾部": [], '落款': [], '其他': [], '附件': []}
     wenshu, index = wenshu_analysis(root_node)
-    res,wenshu_corr = acc_GCSX(index, wenshu_corr)
+    res, wenshu_corr = acc_GCSX(index, wenshu_corr)
+    print('yeyzaizhe 111111')
+    print(wenshu_corr)
     if len(wenshu['首部']) != 0:
         wenshu_corr = acc_DSR(wenshu, wenshu_corr)
+        print('yeyzaizhe 2222222211111')
+        print(wenshu_corr)
         wenshu_corr = acc_SLJG(wenshu, wenshu_corr)
+        print('yeyzaizhe333333333')
+        print(wenshu_corr)
     if len(wenshu['事实']) != 0:
-        wenshu_corr = met_AJJBQK(wenshu, wenshu_corr)
-        wenshu_corr = rea_SSMS(wenshu, wenshu_corr)
+        wenshu_corr, AJJBQK_len, YGSCD_len, BGBCD_len, CMSSD_len, ZJD_len = rea_SSMS(wenshu, wenshu_corr)
+        print('yeyzaizhe 44444444')
+        print(wenshu_corr)
     if len(wenshu['理由']) != 0:
-        CPFXGC_count = met_CPFXGC(wenshu, wenshu_corr)
+        CPFXGC_count = met_CPFXGC(wenshu)
         wenshu_corr = rea_ZYJD(wenshu, wenshu_corr)
+        print('yeyzaizhe 5555555')
+        print(wenshu_corr)
         wenshu_corr = aut_CPYJ(wenshu, wenshu_corr)
-    if len(wenshu['正文']) != 0:
+        print('yeyzaizhe 566666666666')
+        print(wenshu_corr)
+    if len(wenshu['主文']) != 0:
         wenshu_corr = com_PJNR(wenshu, wenshu_corr)
+        print('babazaizhe 777777777777777a')
+        print(wenshu_corr)
     if len(wenshu['尾部']) != 0:
         wenshu_corr = com_SFCD(wenshu, wenshu_corr)
+        print('babazaizhe 8888888888888888')
+        print(wenshu_corr)
 
-    wenshu_corr = aut_AY(root_node,wenshu_corr)
+    wenshu_corr = aut_AY(root_node, wenshu_corr)
     date_AJFS, date_SLRQ, date_JARQ = del_date(root_node)
     AJJBQK_count = met_AJJBQK(wenshu)
-    CSR_count = met_CSR(wenshu)
+    CSR_count = met_CSR(root_node)
+    print('文书解析内容')
+    print(wenshu)
+    print('错误提醒')
+    print(wenshu_corr)
+    print('延迟性')
+    print('时间间隔' + str(date_AJFS), str(date_SLRQ), str(date_JARQ))
+    print('细致性\n' + '裁判分析过程细致性：' + str(CPFXGC_count) + '案件基本情况细致性：' + str(AJJBQK_count) + '参诉人细致性：' + str(CSR_count))
+    print('简明性' + str(AJJBQK_len), str(YGSCD_len), str(BGBCD_len), str(CMSSD_len), str(ZJD_len))
+    wenshu_corr['延迟性'] = [str(date_AJFS), str(date_SLRQ), str(date_JARQ)]
+    wenshu_corr['细致性'] = [CPFXGC_count, AJJBQK_count, CSR_count]
+    wenshu_corr['简明性'] = [AJJBQK_len, YGSCD_len, BGBCD_len, CMSSD_len, ZJD_len]
+    outfile = '../../report/test.json'
+    with open(outfile, 'w', encoding='utf-8') as f:
+        json.dump(wenshu_corr, f, ensure_ascii=False)
 
+
+file_path = input('输入为评估文件名称').strip()
+file_path = 'D:/NJU/final_project/data/example/' + file_path
+
+baba(file_path)
 
 inputf = open('D:/NJU/final_project/data/example/100032.xml', 'r', encoding='utf-8')
 
