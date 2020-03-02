@@ -59,3 +59,28 @@ com_PJNR_score = 5
 com_SFCD_score = 5
 
 
+#争议焦点条理性
+rea_ZYJD_score = 5
+
+#构成事项准确性
+acc_GCSX_score = 10
+acc_GCSX_subscore1 =2
+acc_GCSX_subscore2 = 1
+
+#审理经过准确性
+acc_SLJG_score = 10
+acc_SLJG_subscore1 = 2
+acc_SLJG_subscore2 = 1
+
+#参诉人信息准确性
+acc_CSR_score = 5
+acc_CSR_subscore1 = 1
+acc_CSR_subscore2 = 0.5
+
+#事实描述部分简明性
+rea_SSMS_score = 5
+rea_SSMS_subscore =1
+rea_YGSCD_threshold = 381
+rea_BGBCD_threshold = 187
+rea_CMSSD_threshold = 613
+rea_ZJD_threshold = 200

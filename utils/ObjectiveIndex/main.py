@@ -67,20 +67,26 @@ def wenshu_analysis(root_node):
 
 def acc_GCSX(index, wenshu_corr):
     # 篇章结构规范性结果，0表示正确，1表示缺少，2表示顺序错误
+    res_score = 0
     res = [0 for i in range(10)]
     for i in range(len(index)):
         if index[i] == -1:
             res[i] = 1
             wenshu_corr[standard[i]].append('篇章结构：缺少' + standard[i])
+            res_score -=cf.acc_GCSX_subscore1
     lis_index = lis(index)
     # 最长递增子序列检测顺序
     for i in range(len(index)):
         if index[i] != -1 and (index[i] not in lis_index):
             wenshu_corr[standard[i]].append('篇章结构：' + standard[i] + '位置错误')
+            res_score -= cf.acc_GCSX_subscore2
             res[i] = 2
     print('结构事项结果，0为正确，1为缺少，2为顺序错误')
     print(res)
-    return res, wenshu_corr
+    res_score +=cf.acc_GCSX_score
+    if res_score<0:
+        res_score=0
+    return res,res_score,wenshu_corr
 
 
 # 最长递增子序列
@@ -108,6 +114,7 @@ def lis(arr):
 
 def acc_SLJG(wenshu, wenshu_corr):
     # 案件受理时间，开庭时间，适用程序，到庭情况，审理结果
+    res_score = 0
     standard_SLJG = ['案件受理时间', '开庭时间', '适用程序', '到庭情况', '审理结果']
     index_SLJG = [-1 for i in range(5)]
     for node in wenshu['首部']:
@@ -136,13 +143,18 @@ def acc_SLJG(wenshu, wenshu_corr):
     for i in range(len(index_SLJG)):
         if index_SLJG[i] == -1:
             wenshu_corr['首部'].append('案件审理经过缺少' + standard_SLJG[i])
+            res_score-=cf.acc_SLJG_subscore1
     lis_index = lis(index_SLJG)
     for i in range(len(index_SLJG)):
         if index_SLJG[i] != -1 and (index_SLJG[i] not in lis_index):
             wenshu_corr['首部'].append('案件审理经过中' + standard_SLJG[i] + '顺序错误')
+            res_score-=cf.acc_SLJG_subscore2
     print('案件审理经过累计错误')
     print(wenshu_corr['首部'])
-    return wenshu_corr
+    res_score+=cf.acc_SLJG_score
+    if res_score<0:
+        res_score=0
+    return res_score,wenshu_corr
 
 
 def con_pun_DSR(DSR_txt, wenshu_corr):
@@ -165,6 +177,9 @@ def con_pun_DSR(DSR_txt, wenshu_corr):
 # 当事人信息准确性
 def acc_CSR(wenshu, wenshu_corr):
     standard_DSR = ['诉讼身份', '姓名', '性别', '出生年月日', '民族', '籍贯', '住址', '公民身份证号']
+    res_score = 0
+    if len(wenshu['首部'])==0:
+        return res_score,wenshu_corr
     for node in wenshu['首部']:
         if node.tag == 'DSR':
             for subnode in node:
@@ -180,6 +195,7 @@ def acc_CSR(wenshu, wenshu_corr):
                     if subnode[i].tag == 'SSSF':
                         if subnode[i].get('value') == '委托代理人':
                             wenshu_corr['首部'].append('委托代理人应更改为委托诉讼代理人')
+                            res_score -= cf.acc_CSR_subscore2
                         index_DSR[0] = DSR_txt.index(subnode[i].get('value'))
                     # 诉讼参与人
                     elif subnode[i].tag == 'SSCYR':
@@ -189,6 +205,7 @@ def acc_CSR(wenshu, wenshu_corr):
                         for tmp in subnode[i]:
                             if tmp.tag == 'ZW' and tmp.get('value') == '律师':
                                 wenshu_corr['首部'].append('律师应更改为法律工作者')
+                                res_score -= cf.acc_CSR_subscore2
                     elif subnode[i].tag == 'XB':
                         index_DSR[2] = re.search(r'(男|女)', DSR_txt).start()
                     elif subnode[i].tag =='CSRQ':
@@ -201,12 +218,15 @@ def acc_CSR(wenshu, wenshu_corr):
                         error_txt.append(standard_DSR[i])
                     if index_DSR[i] != -1 and (index_DSR[i] not in lis_index):
                         wenshu_corr['首部'].append('当事人信息“' + DSR_txt + '”中' + standard_DSR[i] + '顺序错误，应该按照，诉讼身份，姓名，性别，出生年月日顺序书写')
+                        res_score-= cf.acc_CSR_subscore2
                 if error_txt != '':
                     wenshu_corr['首部'].append('当事人信息“' + DSR_txt + '”中缺少' + (','.join(error_txt)))
+                    res_score -= cf.acc_CSR_subscore1
         break
-    print('文书首部累计错误')
-    print(wenshu_corr['首部'])
-    return wenshu_corr
+    res_score += cf.acc_CSR_score
+    if res_score<0:
+        res_score =0
+    return res_score,wenshu_corr
 
 
 # acc_SLJG(wenshu, wenshu_corr)
@@ -286,10 +306,9 @@ def con_num(wenshu):
     return cf.con_num_score
 
 def rea_SSMS(wenshu):
+    res_score = 1
     # 案件基本情况
     AJJBQK = wenshu['事实'][0]
-    AJJBQK_txt = AJJBQK.get('value')
-    AJJBQK_len = len(AJJBQK_txt)
     YGSCD_len, BGBCD_len, CMSSD_len, ZJD_len = 0, 0, 0, 0
     for node in AJJBQK:
         # 原告诉称段
@@ -308,9 +327,15 @@ def rea_SSMS(wenshu):
         elif node.tag == 'ZJD':
             ZJD_txt = node.get('value')
             ZJD_len = len(ZJD_txt)
-    print(AJJBQK_len, YGSCD_len, BGBCD_len, CMSSD_len, ZJD_len)
-    return  AJJBQK_len, YGSCD_len, BGBCD_len, CMSSD_len, ZJD_len
-
+    if YGSCD_len!=0 and YGSCD_len<cf.rea_YGSCD_threshold:
+        res_score+=cf.rea_SSMS_subscore
+    if BGBCD_len!=0 and BGBCD_len<cf.rea_BGBCD_threshold:
+        res_score+=cf.rea_SSMS_subscore
+    if CMSSD_len!=0 and CMSSD_len<cf.rea_CMSSD_threshold:
+        res_score+=cf.rea_SSMS_subscore
+    if ZJD_len!=0 and ZJD_len<cf.rea_ZJD_threshold:
+        res_score+=cf.rea_SSMS_subscore
+    return  res_score
 
 # rea_SSMS(wenshu)
 
@@ -326,19 +351,25 @@ def con_pun_CPFXGC(CPFXGC_txt, wenshu_corr):
 
 # 争议焦点条理性
 def rea_ZYJD(wenshu, wenshu_corr):
+    res_score = 0
     SSJL_txt = ''
-    for node in wenshu['首部']:
-        if node.tag == 'SSJL':
-            SSJL_txt = node.get('value')
-            break
-    if '简易程序' in SSJL_txt:
-        print('简易程序不需要争议焦点检测')
-        return wenshu_corr
+    if len(wenshu['首部'])!=0:
+        for node in wenshu['首部']:
+            if node.tag == 'SSJL':
+                SSJL_txt = node.get('value')
+                break
+        if '简易程序' in SSJL_txt:
+            print('简易程序不需要争议焦点检测')
+            res_score+=cf.rea_ZYJD_score
+            return res_score,wenshu_corr
+    if len(wenshu['理由'])==0:
+        return res_score,wenshu_corr
     CPFXGC_txt = wenshu['理由'][0].get('value')
     if not re.match(r'.*(争议焦点|本案焦点|焦点).*', CPFXGC_txt):
         wenshu_corr['理由'].append('未归纳案件争议焦点')
-    print(wenshu_corr['理由'])
-    return wenshu_corr
+    else:
+        res_score+=cf.rea_ZYJD_score
+    return res_score,wenshu_corr
 
 
 # rea_ZYJD(wenshu, wenshu_corr)
@@ -413,11 +444,9 @@ def com_PJNR(wenshu, wenshu_corr):
         else:
             res_score+=cf.com_PJNR_score
         return res_score,wenshu_corr
-        print(wenshu_corr['主文'])
     else:
         return res_score,wenshu_corr
 
-    return wenshu_corr
 
 
 # com_PJNR(wenshu, wenshu_corr)
@@ -425,6 +454,9 @@ def com_PJNR(wenshu, wenshu_corr):
 
 # 诉费承担完整性
 def com_SFCD(wenshu, wenshu_corr):
+    res_score = 0
+    if len(wenshu['尾部'])==0:
+        return res_score,wenshu_corr
     SSFCD_node = wenshu['尾部'][0]
     # 是否多人承担诉讼费用
     count = 0
@@ -447,7 +479,9 @@ def com_SFCD(wenshu, wenshu_corr):
                                     ssf_item += int(sssubnode.get('value').split('元')[0])
     if count > 1 and ssf_sum != ssf_item:
         wenshu_corr['尾部'].append('诉费承担完整性：未分别说明承担人各自承担金额')
-    return wenshu_corr
+        return 0,wenshu_corr
+    else:
+        return cf.com_SFCD_score,wenshu_corr
 
 
 # com_SFCD(wenshu, wenshu_corr)
@@ -768,7 +802,9 @@ if __name__ == '__main__':
     wenshu, index = wenshu_analysis(root_node)
     # aut_AY(root_node,wenshu_corr)
     # aut_CPYJ(wenshu,wenshu_corr)
-    con_pun(wenshu,wenshu_corr)
-
-
-
+    # con_pun(wenshu,wenshu_corr)
+    # rea_ZYJD(wenshu,wenshu_corr)
+    # acc_GCSX(index,wenshu_corr)
+    # acc_SLJG(wenshu,wenshu_corr)
+    # acc_CSR(wenshu,wenshu_corr)
+    rea_SSMS(wenshu)

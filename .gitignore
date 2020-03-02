@@ -8,3 +8,5 @@ upload_files/
 report/
 utils/text_style_classification_BERT
 utils/language-style-transfer-master-py3/language-style-transfer/tmp*/
+*.png
+*.jpg

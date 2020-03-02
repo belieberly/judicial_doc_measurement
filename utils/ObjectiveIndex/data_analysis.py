@@ -299,7 +299,7 @@ def plot_show_volin(json_path,Chinese_name,English_name):
     plt.title("Volin Charts of " + English_name, fontsize=15)
     plt.savefig('./' + Chinese_name + '2.png')
     plt.show()
-    sns.kdeplot(dataset_,shade=True, color="orange", label="AJJBQK")
+    sns.kdeplot(dataset_,shade=True, color="orange")
     plt.title('Density Plot of '+English_name, fontsize=15)
     plt.legend()
     plt.savefig('./' + Chinese_name + '3.png')
@@ -382,31 +382,47 @@ def date_analysis():
     json.dump(dic,outfile,ensure_ascii=False)
     return
 
-def rea_SSMS(wenshu):
+def rea_analysis():
     # 案件基本情况
-    AJJBQK = wenshu['事实'][0]
-    AJJBQK_txt = AJJBQK.get('value')
-    AJJBQK_len = len(AJJBQK_txt)
-    YGSCD_len, BGBCD_len, CMSSD_len, ZJD_len = 0, 0, 0, 0
-    for node in AJJBQK:
-        # 原告诉称段
-        if node.tag == 'YGSCD':
-            YGSCD_txt = node.get('value')
-            YGSCD_len = len(YGSCD_txt)
-        # 被告辩称段
-        elif node.tag == 'BGBCD':
-            BGBCD_txt = node.get('value')
-            BGBCD_len = len(BGBCD_txt)
-        # 查明事实段
-        elif node.tag == 'CMSSD':
-            CMSSD_txt = node.get('value')
-            CMSSD_len = len(CMSSD_txt)
-        # 证据段
-        elif node.tag == 'ZJD':
-            ZJD_txt = node.get('value')
-            ZJD_len = len(ZJD_txt)
-    print(AJJBQK_len, YGSCD_len, BGBCD_len, CMSSD_len, ZJD_len)
-    return  AJJBQK_len, YGSCD_len, BGBCD_len, CMSSD_len, ZJD_len
+    dic = {'原告诉称段': [], '被告辩称段': [],'查明事实段':[],'证据段':[]}
+    outfile = open('./rea.json', 'w', encoding='utf-8')
+    count = 0
+    YGSCD_len=[]
+    BGBCD_len=[]
+    CMSSD_len=[]
+    ZJD_len = []
+    for filepath in path_file.readlines():
+        count+=1
+        print(count)
+        xml_file = etree.parse('G:/judicial_data/民事一审案件.tar/民事一审案件/msys_all/' + filepath.strip())
+        root_node = xml_file.getroot()[0]
+        for node in root_node:
+            if node.tag=='AJJBQK':
+                # AJJBQK_txt = node.get('value')
+                for subnode in node:
+                    # 原告诉称段
+                    if subnode.tag == 'YGSCD':
+                        YGSCD_txt = subnode.get('value')
+                        YGSCD_len.append(len(YGSCD_txt))
+                    # 被告辩称段
+                    elif subnode.tag == 'BGBCD':
+                        BGBCD_txt = subnode.get('value')
+                        BGBCD_len.append(len(BGBCD_txt))
+                    # 查明事实段
+                    elif subnode.tag == 'CMSSD':
+                        CMSSD_txt = subnode.get('value')
+                        CMSSD_len.append(len(CMSSD_txt))
+                    # 证据段
+                    elif subnode.tag == 'ZJD':
+                        ZJD_txt = subnode.get('value')
+                        ZJD_len.append(len(ZJD_txt))
+    dic['原告诉称段'] = YGSCD_len
+    dic['被告辩称段'] = BGBCD_len
+    dic['查明事实段'] = CMSSD_len
+    dic['证据段'] = ZJD_len
+    print(len(dic['原告诉称段']), len(dic['被告辩称段']), len(dic['查明事实段']), len(dic['证据段']))
+    json.dump(dic, outfile, ensure_ascii=False)
+
 
 
 if __name__=='__main__':
@@ -419,5 +435,11 @@ if __name__=='__main__':
     # plot_show_volin('./met.json', '当事人', 'Meticulous of DSR')
 
     # date_analysis()
-    plot_show_volin('./date.json','案件信息延迟性','Delay of AJXX')
+    # plot_show_volin('./date.json','案件信息延迟性','Delay of AJXX')
     # plot_show_volin('./date.json', '裁判文书延迟性', 'Delay of CPWS')
+
+    # rea_analysis()
+    # plot_show_volin('./rea.json','原告诉称段','Readability of YGSCD')
+    # plot_show_volin('./rea.json', '被告辩称段', 'Readability of BGBCD')
+    # plot_show_volin('./rea.json', '查明事实段', 'Readability of CMSSD')
+    plot_show_volin('./rea.json', '证据段', 'Readability of ZJD')
